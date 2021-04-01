@@ -1,0 +1,34 @@
+{
+    "editor.fontLigatures": false,
+    "editor.fontFamily": "'FreePixel Nerd Font Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.fontSize": 18,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.autoIndent": "none",
+    "C_Cpp.default.includePath": [
+        "/home/davide/src/serenity",
+        "/home/davide/src/serenity/Kernel",
+        "/home/davide/src/serenity/Userland/Libraries",
+        "/home/davide/src/serenity/Userland/Libraries/LibC",
+        "/home/davide/src/serenity/Userland/Libraries/LibPthread",
+        "/home/davide/src/serenity/Userland/Libraries/LibM",
+        "/home/davide/src/serenity/Userland/Services",
+        "/home/davide/src/serenity/Toolchain/Local/i686/i686-pc-serenity/include/c++/10.2.0",
+        "/home/davide/src/serenity/Build/Services",
+        "/home/davide/src/serenity/Build/Libraries"
+    ],
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "terminal.integrated.fontSize": 18
+}

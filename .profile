@@ -1,0 +1,64 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+# set PATH so it includes user's private bin if it exists
+# if [ -d "$HOME/bin" ] ; then
+#     PATH="$HOME/bin:$PATH"
+# fi
+#
+# # set PATH so it includes user's private bin if it exists
+# if [ -d "$HOME/.local/bin" ] ; then
+#     PATH="$HOME/.local/bin:$PATH"
+# fi
+
+# Useful aliases
+alias ll='ls -alh --group-directories-first'
+alias open='xdg-open'
+alias editnvimrc='nvim /home/davide/.config/nvim/init.vim'
+alias cpclip='xclip -selection clipboard'
+
+# Dotfiles managing
+alias dotfm='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+
+# Changes the default editor and pager
+export EDITOR="nvim"
+export PAGER="most"
+
+# PyEnv
+export PATH="/home/davide/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT=$(pyenv root)
+
+# Node Version Manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Java
+export JAVA_HOME="/usr/lib/jvm/jdk-15"
+export PATH="/usr/lib/jvm/jdk-15/bin:$PATH"
+
+# GoBuster
+export PATH="/opt/gobuster:$PATH"
+
+# TexLive
+export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
+
+# Sets FZF command
+export FZF_DEFAULT_COMMAND='fdfind --type f'
+
+# If there is a virtual env source it
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
+fi
+
+# Runs Pfetch
+pfetch
