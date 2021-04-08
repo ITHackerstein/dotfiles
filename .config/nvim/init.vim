@@ -192,3 +192,6 @@ set guicursor=n-v-c:block-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver
 
 " disables mouse
 set mouse=
+
+" shows output of command incrementally
+set inccommand=nosplit
