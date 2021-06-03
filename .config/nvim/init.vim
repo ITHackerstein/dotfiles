@@ -166,6 +166,7 @@ augroup myAuto
 	autocmd BufRead,BufNewFile *.hpp,*.cpp,*.cc set filetype=cpp
 	autocmd BufRead,BufNewFile *.asm, set filetype=nasm
 	autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+	autocmd FileType gitcommit setlocal tw=72
 augroup END
 
 

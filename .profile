@@ -62,3 +62,4 @@ fi
 
 # Runs Pfetch
 pfetch
+. "$HOME/.cargo/env"
