@@ -26,6 +26,7 @@ set termguicolors
 
 syntax on
 colorscheme gruvbox
+set guifont=JetBrains\ Mono\ NL:h14
 
 " tabs
 set showtabline=2
