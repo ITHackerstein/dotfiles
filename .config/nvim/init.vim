@@ -75,7 +75,8 @@ map <C-p> :FZF<CR>
 " lines wrapping
 set wrap
 set nolinebreak
-set textwidth=0
+set textwidth=72
+set formatoptions-=t
 
 " line ending
 set fileformat=unix
@@ -167,7 +168,7 @@ augroup myAuto
 	autocmd BufRead,BufNewFile *.hpp,*.cpp,*.cc set filetype=cpp
 	autocmd BufRead,BufNewFile *.asm, set filetype=nasm
 	autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-	autocmd FileType gitcommit setlocal tw=72
+	autocmd FileType gitcommit,markdown setlocal formatoptions+=t
 augroup END
 
 
