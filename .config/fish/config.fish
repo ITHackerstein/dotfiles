@@ -19,7 +19,8 @@
 # fi
 
 # Useful aliases
-alias ll='ls -alh --group-directories-first'
+alias ls='exa'
+alias ll='exa -alh --group-directories-first'
 alias open='xdg-open'
 alias editnvimrc='nvim /home/davide/.config/nvim/init.vim'
 alias cpclip='xclip -selection clipboard'
@@ -33,9 +34,9 @@ export PAGER="most"
 
 # PyEnv
 export PATH="/home/davide/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PYENV_ROOT=$(pyenv root)
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
+export PYENV_ROOT=(pyenv root)
 
 # Java
 export JAVA_HOME="/usr/lib/jvm/jdk-15"
@@ -51,10 +52,18 @@ export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
 export FZF_DEFAULT_COMMAND='fdfind --type f'
 
 # If there is a virtual env source it
-if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
-  source "${VIRTUAL_ENV}/bin/activate"
-fi
+if set -q VIRTUAL_ENV and test -f $VIRTUAL_ENV/bin/activate.fish
+  . "$VIRTUAL_ENV/bin/activate.fish"
+end
+
+# Sets default node version to latest
+set --universal nvm_default_version latest
+
+# Cargo, Rust and all of its friends
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Removes fish greeting
+set fish_greeting
 
 # Runs Pfetch
 pfetch
-. "$HOME/.cargo/env"
