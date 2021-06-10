@@ -20,7 +20,7 @@
 
 # Useful aliases
 alias ls='exa'
-alias ll='exa -alh --group-directories-first'
+alias ll='exa -alh --group-directories-first --group --icons'
 alias open='xdg-open'
 alias editnvimrc='nvim /home/davide/.config/nvim/init.vim'
 alias cpclip='xclip -selection clipboard'
@@ -62,8 +62,6 @@ set --universal nvm_default_version latest
 # Cargo, Rust and all of its friends
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Removes fish greeting
-set fish_greeting
-
-# Runs Pfetch
-pfetch
+function fish_greeting
+	pfetch
+end
