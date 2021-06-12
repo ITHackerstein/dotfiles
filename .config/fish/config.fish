@@ -49,7 +49,7 @@ export PATH="/opt/gobuster:$PATH"
 export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
 
 # Sets FZF command
-export FZF_DEFAULT_COMMAND='fdfind --type f'
+export FZF_DEFAULT_COMMAND='fdfind --type f --no-ignore-vcs'
 
 # If there is a virtual env source it
 if set -q VIRTUAL_ENV and test -f $VIRTUAL_ENV/bin/activate.fish
