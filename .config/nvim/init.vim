@@ -13,7 +13,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'pangloss/vim-javascript'
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'cespare/vim-toml'
 Plug 'ciaranm/detectindent'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -25,6 +25,7 @@ set updatetime=100
 set termguicolors
 
 syntax on
+let g:gruvbox_italic=1
 colorscheme gruvbox
 set guifont=JetBrains\ Mono\ NL:h14
 
