@@ -1,0 +1,16 @@
+CC = g++
+FLAGS = -std=c++11 -Wall -g
+OBJS = build/main.o
+
+build/main: $(OBJS)
+	$(CC) $(FLAGS) -o $@ $^
+
+build/%.o: src/%.cpp
+	$(CC) $(FLAGS) -c -o $@ $^
+
+.PHONY: clean
+clean:
+	rm -rf build/*.o build/main
+
+run: build/main
+	build/main
