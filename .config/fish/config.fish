@@ -24,6 +24,7 @@ alias ll='exa -alh --group-directories-first --group --icons'
 alias open='xdg-open'
 alias editnvimrc='nvim /home/davide/.config/nvim/init.vim'
 alias cpclip='xclip -selection clipboard'
+alias neovide='$HOME/src/neovide/target/release/neovide'
 
 # Dotfiles managing
 alias dotfm='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
