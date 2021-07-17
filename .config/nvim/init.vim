@@ -16,6 +16,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'cespare/vim-toml'
 Plug 'ciaranm/detectindent'
+Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 

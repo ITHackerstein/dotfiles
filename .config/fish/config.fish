@@ -34,10 +34,11 @@ export EDITOR="nvim"
 export PAGER="most"
 
 # PyEnv
-export PATH="/home/davide/.pyenv/bin:$PATH"
-status --is-interactive; and source (pyenv init -|psub)
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+status is-interactive; and pyenv init --path | source
+pyenv init - | source
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
-export PYENV_ROOT=(pyenv root)
 
 # Java
 export JAVA_HOME="/usr/lib/jvm/jdk-15"
