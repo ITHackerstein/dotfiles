@@ -12,12 +12,14 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'pangloss/vim-javascript'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'cespare/vim-toml'
 Plug 'ciaranm/detectindent'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " update time
@@ -28,7 +30,7 @@ set termguicolors
 syntax on
 let g:gruvbox_italic=1
 colorscheme gruvbox
-set guifont=JetBrains\ Mono\ NL:h14
+set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono,Noto\ Color\ Emoji,Noto\ Emoji:h10
 
 " tabs
 set showtabline=2
@@ -51,8 +53,8 @@ set tabstop=2
 set shiftwidth=2
 set backspace=2
 filetype indent plugin off
-set nosmartindent
-set noautoindent
+set smartindent
+set autoindent
 
 " no backup files i hate them
 set nobackup
