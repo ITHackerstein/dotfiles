@@ -85,6 +85,10 @@ set formatoptions-=t
 " line ending
 set fileformat=unix
 
+" listchars
+set list
+set listchars=tab:-→,space:·
+
 " remove trailing whitespaces
 function! <SID>StripTrailingWhitespaces()
 	let l = line(".")
@@ -157,6 +161,7 @@ command! SwitchHeaderSource call SwitchHeaderSource()
 map <F4> :SwitchHeaderSource<CR>
 
 " clang-format
+let g:clang_format#command = "clang-format-12"
 let g:clang_format#detect_style_file = 1
 
 " remove bell sound
@@ -173,8 +178,8 @@ augroup myAuto
 	autocmd BufRead,BufNewFile *.asm, set filetype=nasm
 	autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 	autocmd FileType gitcommit,markdown setlocal formatoptions+=t
+	autocmd FileType c,cpp ClangFormatAutoEnable
 augroup END
-
 
 " set cursor shapes
 set guicursor=n-v-c:block-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
