@@ -31,14 +31,12 @@ alias dotfm='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
 # Changes the default editor and pager
 export EDITOR="nvim"
-export PAGER="most"
 
 # PyEnv
 set -Ux PYENV_ROOT $HOME/.pyenv
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-status is-interactive; and pyenv init --path | source
-pyenv init - | source
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
+set PATH $PATH $PYENV_ROOT/bin
+status --is-interactive; and pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
 
 # Java
 export JAVA_HOME="/usr/lib/jvm/jdk-15"
