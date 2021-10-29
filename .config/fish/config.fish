@@ -18,19 +18,20 @@
 #     PATH="$HOME/.local/bin:$PATH"
 # fi
 
+# Changes the default editor
+set -x EDITOR "/opt/nvim.appimage"
+
 # Useful aliases
 alias ls='exa'
 alias ll='exa -alh --group-directories-first --group --icons'
 alias open='xdg-open'
-alias editnvimrc='nvim /home/davide/.config/nvim/init.vim'
+alias editnvimrc='$EDITOR /home/davide/.config/nvim/init.vim'
 alias cpclip='xclip -selection clipboard'
+alias nvim='$EDITOR'
 alias neovide='$HOME/src/neovide/target/release/neovide'
 
 # Dotfiles managing
 alias dotfm='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-
-# Changes the default editor and pager
-export EDITOR="nvim"
 
 # PyEnv
 set -Ux PYENV_ROOT $HOME/.pyenv
