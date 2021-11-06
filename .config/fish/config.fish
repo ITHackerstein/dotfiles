@@ -34,14 +34,18 @@ alias neovide='$HOME/src/neovide/target/release/neovide'
 alias dotfm='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
 # PyEnv
-set -Ux PYENV_ROOT $HOME/.pyenv
-set PATH $PATH $PYENV_ROOT/bin
-status --is-interactive; and pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
 
 # Java
-export JAVA_HOME="/usr/lib/jvm/jdk-15"
-export PATH="/usr/lib/jvm/jdk-15/bin:$PATH"
+# export JAVA_HOME="/usr/lib/jvm/jdk-15"
+# export PATH="/usr/lib/jvm/jdk-15/bin:$PATH"
+export JAVA_HOME="/opt/jdk-16"
+export PATH="/opt/jdk-16/bin:$PATH"
+
+# Ant
+export ANT_HOME="/opt/apache-ant-1.10.12"
+export PATH="/opt/apache-ant-1.10.12/bin:$PATH"
 
 # GoBuster
 export PATH="/opt/gobuster:$PATH"
