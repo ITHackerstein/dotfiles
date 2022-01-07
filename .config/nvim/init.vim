@@ -6,12 +6,14 @@ Plug 'dracula/vim',{'as': 'dracula'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/badwolf'
-Plug 'morhetz/gruvbox'
+Plug 'rktjmp/lush.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'kaicataldo/material.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'ciaranm/detectindent'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -22,10 +24,12 @@ call plug#end()
 " update time
 set updatetime=100
 
+" colors
 set termguicolors
 
 syntax on
 let g:gruvbox_italic=1
+let g:gruvbox_transparent_bg=1
 colorscheme gruvbox
 set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono,Noto\ Color\ Emoji,Noto\ Emoji:h10
 
@@ -71,7 +75,8 @@ set splitbelow
 map <F3> :noh<CR>
 map tn :tabn<CR>
 map tp :tabp<CR>
-map <C-p> :FZF<CR>
+map <C-p> :Files<CR>
+map <C-f><C-f> :Rg<CR>
 
 " lines wrapping
 set wrap
@@ -85,6 +90,9 @@ set fileformat=unix
 " listchars
 set list
 set listchars=tab:-→,space:·
+
+" autoread
+set autoread
 
 " remove trailing whitespaces
 function! <SID>StripTrailingWhitespaces()
@@ -158,7 +166,7 @@ command! SwitchHeaderSource call SwitchHeaderSource()
 map <F4> :SwitchHeaderSource<CR>
 
 " clang-format
-let g:clang_format#command = "clang-format-12"
+let g:clang_format#command = "clang-format"
 let g:clang_format#detect_style_file = 1
 
 " remove bell sound
@@ -173,6 +181,7 @@ augroup myAuto
 	autocmd BufRead,BufNewFile *.h,*.c set filetype=c
 	autocmd BufRead,BufNewFile *.hpp,*.cpp,*.cc set filetype=cpp
 	autocmd BufRead,BufNewFile *.asm, set filetype=nasm
+	autocmd Syntax * normal zR
 	autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 	autocmd FileType gitcommit,markdown setlocal formatoptions+=t
 	autocmd FileType c,cpp ClangFormatAutoEnable
@@ -186,6 +195,10 @@ set mouse=
 
 " shows output of command incrementally
 set inccommand=nosplit
+
+" folding
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 "" COC
 " if hidden is not set, TextEdit might fail.
