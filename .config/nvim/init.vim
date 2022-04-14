@@ -31,6 +31,7 @@ syntax on
 let g:gruvbox_italic=1
 let g:gruvbox_transparent_bg=1
 colorscheme gruvbox
+let g:airline_theme='base16_gruvbox_dark_medium'
 set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono,Noto\ Color\ Emoji,Noto\ Emoji:h10
 
 " tabs
