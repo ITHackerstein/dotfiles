@@ -1,0 +1,48 @@
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+return require('packer').startup(function(use)
+	-- My plugins here
+	use 'wbthomason/packer.nvim'
+	use {
+		'kdheepak/tabline.nvim',
+		requires = {
+			{ 'nvim-lualine/lualine.nvim' },
+			{ 'kyazdani42/nvim-web-devicons' },
+		}
+	}
+	use 'ellisonleao/gruvbox.nvim'
+	use 'rhysd/vim-clang-format'
+	use 'airblade/vim-gitgutter'
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = {'nvim-lua/plenary.nvim'}
+	}
+	use 'mattn/emmet-vim'
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	use { 'folke/tokyonight.nvim', branch = 'main' }
+	use {
+		'neovim/nvim-lspconfig',
+		requires = {
+			'williamboman/nvim-lsp-installer',
+			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-path',
+			'hrsh7th/cmp-cmdline',
+			'hrsh7th/nvim-cmp',
+			'hrsh7th/cmp-vsnip',
+			'hrsh7th/vim-vsnip',
+			'ray-x/lsp_signature.nvim',
+		}
+	}
+	use 'rcarriga/nvim-notify'
+
+	-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
+	if packer_bootstrap then
+		require('packer').sync()
+	end
+end)

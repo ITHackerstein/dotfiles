@@ -1,0 +1,7 @@
+require('plugins')
+require('treesitter_config')
+require('lualine_config')
+require('lsp_config')
+require('telescope_config')
+require('mappings')
+require('options')
