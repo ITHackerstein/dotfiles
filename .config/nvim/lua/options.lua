@@ -10,6 +10,11 @@ vim.g.grubox_transparent_bg = 1
 vim.g.tokyonight_style = 'night'
 vim.g.tokyonight_style_comments = 1
 
+vim.g.neovide_transparency = 0.95
+vim.g.neovide_cursor_vfx_mode = "sonicboom"
+
+vim.g.python3_host_prog = "/home/davide/.pyenv/shims/python"
+
 vim.g.fzf_colors = {
 	fg = { 'fg', 'Normal' },
 	bg = { 'bg', 'Normal' },
@@ -28,6 +33,10 @@ vim.g.fzf_colors = {
 
 vim.g["clang_format#command"] = "clang-format"
 vim.g["clang_format.detect_style_file"] = 1
+
+vim.g.autoformat_autoindent = 0
+vim.g.autoformat_retab = 0
+vim.g.autoformat_remove_trailing_spaces = 0
 
 vim.cmd[[colorscheme tokyonight]]
 
@@ -59,7 +68,8 @@ vim.opt.listchars = "tab:-→,space:·"
 
 vim.opt.autoread = true
 
-vim.cmd([[augroup myAuto
+vim.cmd([[
+augroup myAuto
 	autocmd!
 	autocmd BufRead,BufNewFile *.h,*.c set filetype=c
 	autocmd BufRead,BufNewFile *.hpp,*.cpp,*.cc set filetype=cpp
@@ -68,6 +78,7 @@ vim.cmd([[augroup myAuto
 	autocmd BufWritePre * :lua custom_functions.strip_trailing_whitespaces()
 	autocmd FileType gitcommit,markdown setlocal formatoptions+=t
 	autocmd FileType c,cpp ClangFormatAutoEnable
+	autocmd BufWrite *.rs :Autoformat
 augroup END
 ]])
 

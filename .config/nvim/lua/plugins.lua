@@ -35,10 +35,18 @@ return require('packer').startup(function(use)
 			'hrsh7th/nvim-cmp',
 			'hrsh7th/cmp-vsnip',
 			'hrsh7th/vim-vsnip',
-			'ray-x/lsp_signature.nvim',
+			'hrsh7th/cmp-nvim-lsp-signature-help',
+
+			'simrat39/rust-tools.nvim'
 		}
 	}
 	use 'rcarriga/nvim-notify'
+	use 'j-hui/fidget.nvim'
+	use {
+		'kosayoda/nvim-lightbulb',
+		requires = 'antoinemadec/FixCursorHold.nvim',
+	}
+	use 'vim-autoformat/vim-autoformat'
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
