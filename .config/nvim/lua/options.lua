@@ -13,7 +13,7 @@ vim.g.tokyonight_style_comments = 1
 vim.g.neovide_transparency = 0.95
 vim.g.neovide_cursor_vfx_mode = "sonicboom"
 
-vim.g.python3_host_prog = "/home/davide/.pyenv/shims/python"
+vim.g.python3_host_prog = "/usr/bin/python"
 
 vim.g.fzf_colors = {
 	fg = { 'fg', 'Normal' },

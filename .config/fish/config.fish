@@ -34,6 +34,7 @@ alias dotfm='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 # PyEnv
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
 
 # Java
 # export JAVA_HOME="/opt/jdk-16"
@@ -61,7 +62,7 @@ end
 set --universal nvm_default_version latest
 
 # Cargo, Rust and all of its friends
-export PATH="$HOME/.cargo/bin:$PATH"
+set -gx PATH "$HOME/.cargo/bin" $PATH;
 
 # .NET
 export PATH="$HOME/.dotnet:$PATH"
