@@ -8,9 +8,14 @@ return require('packer').startup(function(use)
 	-- My plugins here
 	use 'wbthomason/packer.nvim'
 	use {
-		'kdheepak/tabline.nvim',
+		'nvim-lualine/lualine.nvim',
 		requires = {
-			{ 'nvim-lualine/lualine.nvim' },
+			{ 'kyazdani42/nvim-web-devicons' },
+		}
+	}
+	use {
+		'romgrk/barbar.nvim',
+		requires = {
 			{ 'kyazdani42/nvim-web-devicons' },
 		}
 	}

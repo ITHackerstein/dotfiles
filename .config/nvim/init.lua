@@ -1,6 +1,7 @@
 require('plugins')
 require('treesitter_config')
 require('lualine_config')
+require('barbar_config')
 require('fidget_config')
 require('lightbulb_config')
 require('rust_tools_config')

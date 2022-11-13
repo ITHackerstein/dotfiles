@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/davide/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
     url = "https://github.com/antoinemadec/FixCursorHold.nvim"
   },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/davide/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/kdheepak/barbar.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/davide/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -178,11 +183,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/davide/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
-  },
-  ["tabline.nvim"] = {
-    loaded = true,
-    path = "/home/davide/.local/share/nvim/site/pack/packer/start/tabline.nvim",
-    url = "https://github.com/kdheepak/tabline.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
