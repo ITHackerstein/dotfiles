@@ -22,7 +22,7 @@ require'bufferline'.setup {
   exclude_name = {},
 
   -- Show every buffer
-  hide = {current = false, inactive = false, visible = false},
+  hide = {current = false, inactive = true, visible = false},
 
 
   -- Enable/disable icons
