@@ -32,7 +32,8 @@ return require('packer').startup(function(use)
 	use {
 		'neovim/nvim-lspconfig',
 		requires = {
-			'williamboman/nvim-lsp-installer',
+			'williamboman/mason.nvim',
+			'williamboman/mason-lspconfig.nvim',
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-path',
@@ -41,7 +42,6 @@ return require('packer').startup(function(use)
 			'hrsh7th/cmp-vsnip',
 			'hrsh7th/vim-vsnip',
 			'hrsh7th/cmp-nvim-lsp-signature-help',
-
 			'simrat39/rust-tools.nvim'
 		}
 	}

@@ -65,7 +65,8 @@ set --universal nvm_default_version latest
 set -gx PATH "$HOME/.cargo/bin" $PATH;
 
 # .NET
-export PATH="$HOME/.dotnet:$PATH"
+set -gx PATH "$HOME/.dotnet" $PATH;
+set -gx PATH "$HOME/.dotnet/tools" $PATH;
 
 # Flatpak
 set -l xdg_data_home $XDG_DATA_HOME ~/.local/share

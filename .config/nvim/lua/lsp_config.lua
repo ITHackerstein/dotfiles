@@ -32,8 +32,6 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-require("nvim-lsp-installer").setup {}
-
 local cmp = require("cmp")
 
 cmp.setup {
@@ -69,10 +67,16 @@ local default_settings = {
 	flags = { debounce_text_changes = 150 },
 }
 
-require("lspconfig")["html"].setup(default_settings)
-require("lspconfig")["cmake"].setup(default_settings)
-require("lspconfig")["clangd"].setup(default_settings)
-require("lspconfig")["jsonls"].setup(default_settings)
-require("lspconfig")["pyright"].setup(default_settings)
-require("lspconfig")["tsserver"].setup(default_settings)
-require("lspconfig")["rust_analyzer"].setup(default_settings)
+require("mason").setup {}
+require("mason-lspconfig").setup {}
+
+require("mason-lspconfig").setup_handlers {
+	-- The first entry (without a key) will be the default handler
+	-- and will be called for each installed server that doesn't have
+	-- a dedicated handler.
+	function (server_name) -- default handler (optional)
+		require("lspconfig")[server_name].setup(default_settings)
+	end,
+	-- Next, you can provide a dedicated handler for specific servers.
+	-- For example, a handler override for the `rust_analyzer`:
+}
