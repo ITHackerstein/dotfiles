@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
 	}
 	use 'mattn/emmet-vim'
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	use { 'folke/tokyonight.nvim', branch = 'main' }
+	use { 'folke/tokyonight.nvim' }
 	use {
 		'neovim/nvim-lspconfig',
 		requires = {

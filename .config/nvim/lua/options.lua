@@ -1,5 +1,6 @@
 require('custom_functions')
-vim.opt.guifont = "JetBrainsMonoNL Nerd Font Mono, Noto Color Emoji, Noto Emoji:h10"
+-- vim.opt.guifont = "JetBrainsMonoNL Nerd Font Mono, Noto Color Emoji, Noto Emoji:h8"
+vim.opt.guifont = "CozetteVector, Noto Color Emoji, Noto Emoji:h10"
 vim.opt.encoding = 'utf-8'
 vim.opt.updatetime = 100
 vim.cmd[[set termguicolors]]
