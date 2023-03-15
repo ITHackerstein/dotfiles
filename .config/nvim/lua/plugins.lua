@@ -30,28 +30,31 @@ return require('packer').startup(function(use)
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	use { 'folke/tokyonight.nvim' }
 	use {
-		'neovim/nvim-lspconfig',
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v1.x',
 		requires = {
-			'williamboman/mason.nvim',
-			'williamboman/mason-lspconfig.nvim',
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-buffer',
-			'hrsh7th/cmp-path',
-			'hrsh7th/cmp-cmdline',
-			'hrsh7th/nvim-cmp',
-			'hrsh7th/cmp-vsnip',
-			'hrsh7th/vim-vsnip',
-			'hrsh7th/cmp-nvim-lsp-signature-help',
-			'simrat39/rust-tools.nvim'
+			-- LSP Support
+			{'neovim/nvim-lspconfig'},
+			{'williamboman/mason.nvim'},
+			{'williamboman/mason-lspconfig.nvim'},
+
+			-- Autocompletion
+			{'hrsh7th/nvim-cmp'},
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'hrsh7th/cmp-buffer'},
+			{'hrsh7th/cmp-path'},
+			{'saadparwaiz1/cmp_luasnip'},
+			{'hrsh7th/cmp-nvim-lua'},
+
+			-- Snippets
+			{'L3MON4D3/LuaSnip'},
+			{'rafamadriz/friendly-snippets'},
 		}
 	}
 	use 'rcarriga/nvim-notify'
 	use 'j-hui/fidget.nvim'
-	use {
-		'kosayoda/nvim-lightbulb',
-		requires = 'antoinemadec/FixCursorHold.nvim',
-	}
 	use 'vim-autoformat/vim-autoformat'
+	use 'folke/trouble.nvim'
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
