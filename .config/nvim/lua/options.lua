@@ -78,7 +78,7 @@ augroup myAuto
 	autocmd Syntax * normal zR
 	autocmd BufWritePre * :lua custom_functions.strip_trailing_whitespaces()
 	autocmd FileType gitcommit,markdown setlocal formatoptions+=t
-	autocmd FileType c,cpp ClangFormatAutoEnable
+	autocmd FileType c,cpp :lua custom_functions.enable_clang_format()
 	autocmd BufWrite *.rs :Autoformat
 augroup END
 ]])

@@ -26,4 +26,13 @@ function custom_functions.switch_header_source()
 	end
 end
 
+function custom_functions.enable_clang_format()
+	local cwd = vim.fn.getcwd()
+	if vim.fn.filereadable(cwd .. "/.clang-format") ~= 0 then
+		vim.cmd(":ClangFormatAutoEnable")
+	else
+		vim.cmd(":ClangFormatAutoDisable")
+	end
+end
+
 return custom_functions

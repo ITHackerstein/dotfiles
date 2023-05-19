@@ -120,4 +120,3 @@ end
 # !! Contents within this block are managed by 'conda init' !!
 # eval /home/davide/.pyenv/versions/anaconda3-2021.05/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
-
