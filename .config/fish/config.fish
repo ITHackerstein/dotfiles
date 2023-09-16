@@ -53,6 +53,9 @@ status --is-interactive; and pyenv virtualenv-init - | source
 # Sets FZF command
 export FZF_DEFAULT_COMMAND='fd --type f --no-ignore-vcs'
 
+# Tell Flutter that we use Chromium
+export CHROME_EXECUTABLE="/usr/bin/chromium"
+
 # If there is a virtual env source it
 if set -q VIRTUAL_ENV and test -f $VIRTUAL_ENV/bin/activate.fish
   . "$VIRTUAL_ENV/bin/activate.fish"

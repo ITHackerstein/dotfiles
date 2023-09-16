@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
 		}
 	}
 	use 'rcarriga/nvim-notify'
-	use 'j-hui/fidget.nvim'
+	use { 'j-hui/fidget.nvim', tag = 'legacy' }
 	use 'vim-autoformat/vim-autoformat'
 	use 'folke/trouble.nvim'
 
