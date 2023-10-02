@@ -108,7 +108,13 @@ require("lazy").setup({
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
-		dependencies = { "L3MON4D3/LuaSnip" },
+		dependencies = {
+			"L3MON4D3/LuaSnip",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"saadparwaiz1/cmp_luasnip",
+			"rafamadriz/friendly-snippets"
+		},
 		config = function()
 			local lsp_zero = require("lsp-zero")
 			lsp_zero.extend_cmp()
@@ -116,7 +122,15 @@ require("lazy").setup({
 			local cmp = require("cmp")
 			local cmp_action = lsp_zero.cmp_action()
 
+			require("luasnip.loaders.from_vscode").lazy_load()
+
 			cmp.setup({
+				sources = {
+					{ name = "nvim-lsp" },
+					{ name = "buffer" },
+					{ name = "path" },
+					{ name = "luasnip" }
+				},
 				formatting = lsp_zero.cmp_format(),
 				mapping = cmp.mapping.preset.insert({
 					["<C-e>"] = cmp.mapping.abort(),
