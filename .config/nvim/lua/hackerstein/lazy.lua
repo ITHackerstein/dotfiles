@@ -14,12 +14,13 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- Colorscheme
 	{
-		"folke/tokyonight.nvim",
+		"sainnhe/everforest",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			vim.opt.termguicolors = true
-			vim.cmd[[colorscheme tokyonight-night]]
+			vim.g.everforest_background = "hard"
+			vim.cmd[[colorscheme everforest]]
 		end
 	},
 	-- Which key
@@ -227,5 +228,26 @@ require("lazy").setup({
 			vim.g.vimtex_view_method = "zathura"
 			vim.g.maplocalleader = "\\"
 		end
+	},
+	-- Fidget
+	{
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+		opts = {
+			align = {
+				bottom = false,
+				right = true
+			}
+		}
+	},
+	-- Notify
+	{
+		"rcarriga/nvim-notify",
+		lazy = false
+	},
+	-- Trouble
+	{
+		"folke/trouble.nvim",
+		opts = {}
 	}
 })
