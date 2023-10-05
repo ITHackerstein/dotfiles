@@ -202,7 +202,7 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		config = true
 	},
-	-- Barbar
+	-- Bufferline
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
@@ -222,6 +222,7 @@ require("lazy").setup({
 	-- VimTex
 	{
 		"lervag/vimtex",
+		ft = "tex",
 		config = function()
 			vim.cmd[[filetype plugin on]]
 
