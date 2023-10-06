@@ -127,7 +127,7 @@ require("lazy").setup({
 
 			cmp.setup({
 				sources = {
-					{ name = "nvim-lsp" },
+					{ name = "nvim_lsp" },
 					{ name = "buffer" },
 					{ name = "path" },
 					{ name = "luasnip" }
@@ -139,8 +139,8 @@ require("lazy").setup({
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
-					["<Tab>"] = cmp_action.luasnip_jump_forward(),
-					["<S-Tab>"] = cmp_action.luasnip_jump_backward(),
+					["<C-j>"] = cmp_action.luasnip_jump_forward(),
+					["<C-k>"] = cmp_action.luasnip_jump_backward(),
 				})
 			})
 		end
@@ -180,7 +180,7 @@ require("lazy").setup({
 						name = "Code actions",
 						r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 						f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
-						a = { "<cmd>lua vim.diagnostic.code_action()<cr>", "Action" },
+						a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Action" },
 						s = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Header/Source (C/C++ only)" }
 					}
 				}, { prefix = "<leader>", buffer = buffer })
@@ -201,23 +201,6 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		config = true
-	},
-	-- Bufferline
-	{
-		"akinsho/bufferline.nvim",
-		version = "*",
-		config = function()
-			require("bufferline").setup({})
-
-			require("which-key").register({
-				b = {
-					name = "Buffers",
-					c = { "<cmd>bdelete<cr>", "Close buffer" },
-					p = { "<cmd>BufferLineCyclePrev<cr>", "Previous buffer" },
-					n = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" }
-				}
-			})
-		end
 	},
 	-- VimTex
 	{
