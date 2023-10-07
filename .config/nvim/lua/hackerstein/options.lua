@@ -32,3 +32,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		vim.fn.setpos(".", cursor_pos)
 	end
 })
+
+-- Autoread
+vim.opt.autoread = true
