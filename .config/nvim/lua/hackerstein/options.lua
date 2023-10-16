@@ -1,6 +1,9 @@
 -- Sets Neovide font
 vim.opt.guifont = "CodeNewRoman Nerd Font:h10"
 
+-- Sets Neovide transparency
+vim.g.neovide_transparency = 0.95
+
 -- Leader key
 vim.g.mapleader = " "
 

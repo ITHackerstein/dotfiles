@@ -1,2 +1,4 @@
+.config/nvim/lazy-lock.json
 .config/fish/
 !.config/fish/config.fish
+
