@@ -234,10 +234,35 @@ require("lazy").setup({
 		"folke/trouble.nvim",
 		opts = {}
 	},
+	-- GUI font resizer
 	{
 		"ktunprasert/gui-font-resize.nvim",
 		config = function()
 			require("gui-font-resize").setup()
+
+			require("which-key").register({
+				F = {
+					name = "Font size",
+					u = { "<cmd>GUIFontSizeUp<cr>", "Up" },
+					d = { "<cmd>GUIFontSizeDown<cr>", "Down" }
+				},
+			}, { prefix = "<leader>" })
+		end
+	},
+	-- Null LS
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim"
+		},
+		config = function()
+			local null_ls = require("null-ls")
+
+			null_ls.setup({
+				sources = {
+					null_ls.builtins.diagnostics.cppcheck,
+				},
+			})
 		end
 	}
 })
