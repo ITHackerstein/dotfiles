@@ -260,7 +260,7 @@ require("lazy").setup({
 
 			null_ls.setup({
 				sources = {
-					null_ls.builtins.diagnostics.cppcheck,
+					null_ls.builtins.diagnostics.cppcheck.with({ extra_args = { "--inline-suppr" } }),
 				},
 			})
 		end
