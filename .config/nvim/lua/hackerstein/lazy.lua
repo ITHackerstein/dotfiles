@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -46,12 +46,18 @@ require("lazy").setup({
 	-- Fuzzy finder
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.3",
+		tag = "0.1.5",
 		dependencies = {
 			"nvim-lua/plenary.nvim"
 		},
 		config = function()
-			require('telescope').setup({})
+			require('telescope').setup({
+				pickers = {
+					find_files = {
+						find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs", "--glob", "!**/.git/*", "--sort", "path" }
+					}
+				}
+			})
 			require('telescope').load_extension('fzf')
 
 			require("which-key").register({
@@ -66,6 +72,21 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+	},
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
+		config = function ()
+			require("telescope").setup {
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown {
+						}
+					}
+				}
+			}
+
+			require("telescope").load_extension("ui-select")
+		end
 	},
 	-- Treesitter
 	{
@@ -259,9 +280,9 @@ require("lazy").setup({
 			local null_ls = require("null-ls")
 
 			null_ls.setup({
-				sources = {
-					null_ls.builtins.diagnostics.cppcheck.with({ extra_args = { "--inline-suppr" } }),
-				},
+				-- sources = {
+				-- 	null_ls.builtins.diagnostics.cppcheck.with({ extra_args = { "--inline-suppr" } }),
+				-- },
 			})
 		end
 	}
