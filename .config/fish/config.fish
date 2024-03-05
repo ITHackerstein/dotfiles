@@ -36,14 +36,6 @@ status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 
-# Java
-# export JAVA_HOME="/opt/jdk-16"
-# export PATH="/opt/jdk-16/bin:$PATH"
-
-# Ant
-# export ANT_HOME="/opt/apache-ant-1.10.12"
-# export PATH="/opt/apache-ant-1.10.12/bin:$PATH"
-
 # GoBuster
 # export PATH="/opt/gobuster:$PATH"
 

@@ -218,6 +218,33 @@ require("lazy").setup({
 			})
 		end
 	},
+	-- DAP
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			"jay-babu/mason-nvim-dap.nvim"
+		},
+		cmd = { "LspInfo", "LspInstall", "LspStart" },
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("mason-nvim-dap").setup()
+
+			require("which-key").register({
+				D = {
+					name = "Debugging",
+					c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
+					n = { "<cmd>lua require('dap').step_over()<cr>", "Step over" },
+					s = { "<cmd>lua require('dap').step_into()<cr>", "Step into" },
+					b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle breakpoint" },
+					r = { "<cmd>lua require('dap').repl.open()<cr>", "Open REPL" },
+					h = { "<cmd>lua require('dap.ui.widgets').hover()<cr>", "Hover" },
+					p = { "<cmd>lua require('dap.ui.widgets').preview()<cr>", "Preview" },
+					f = { "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames)<cr>", "Frames" },
+					s = { "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').scopes)<cr>", "Scopes" }
+				}
+			}, { prefix = "<leader>" })
+		end
+	},
 	-- Lualine
 	{
 		"nvim-lualine/lualine.nvim",
