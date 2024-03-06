@@ -21,6 +21,9 @@ require("lazy").setup({
 			vim.opt.termguicolors = true
 			vim.g.everforest_background = "hard"
 			vim.cmd[[colorscheme everforest]]
+
+			-- latex tweak for Conceal
+			vim.cmd[[ hi! link Conceal LocalIdent ]]
 		end
 	},
 	-- Which key
@@ -98,7 +101,8 @@ require("lazy").setup({
 				sync_install = false,
 				highlight = {
 					enable = true,
-					additional_vim_regex_syntax_highlighting = false
+					disable = { "latex" },
+					additional_vim_regex_syntax_highlighting = { "latex" }
 				}
 			})
 
@@ -259,6 +263,10 @@ require("lazy").setup({
 
 			vim.g.vimtex_view_method = "zathura"
 			vim.g.maplocalleader = "\\"
+
+			-- Conceal
+			vim.opt.concealcursor = "nc"
+			vim.opt.conceallevel = 2
 		end
 	},
 	-- Fidget
