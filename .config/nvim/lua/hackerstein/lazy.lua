@@ -113,6 +113,13 @@ require("lazy").setup({
 			]])
 		end
 	},
+	-- Treesitter text objects
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		dependencies = {
+			"nvim=treesitter/nvim-treesitter"
+		}
+	},
 	-- LSP Zero
 	{
 		"VonHeikemen/lsp-zero.nvim",
@@ -319,6 +326,35 @@ require("lazy").setup({
 				-- 	null_ls.builtins.diagnostics.cppcheck.with({ extra_args = { "--inline-suppr" } }),
 				-- },
 			})
+		end
+	},
+	-- Copilot
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({})
+
+			require("copilot.suggestion").toggle_auto_trigger()
+
+			local cmp = require("cmp")
+			cmp.event:on("menu_opened", function()
+				vim.b.copilot_suggestion_hidden = true
+			end)
+
+			cmp.event:on("menu_closed", function()
+				vim.b.copilot_suggestion_hidden = false
+			end)
+		end
+	},
+	-- Surround
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
 		end
 	}
 })
