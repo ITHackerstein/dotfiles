@@ -117,7 +117,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = {
-			"nvim=treesitter/nvim-treesitter"
+			"nvim-treesitter/nvim-treesitter"
 		}
 	},
 	-- LSP Zero
@@ -146,7 +146,7 @@ require("lazy").setup({
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets"
+			"rafamadriz/friendly-snippets",
 		},
 		config = function()
 			local lsp_zero = require("lsp-zero")
@@ -159,6 +159,7 @@ require("lazy").setup({
 
 			cmp.setup({
 				sources = {
+					{ name = "copilot" },
 					{ name = "nvim_lsp" },
 					{ name = "buffer" },
 					{ name = "path" },
@@ -334,18 +335,20 @@ require("lazy").setup({
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			require("copilot").setup({})
-
-			require("copilot.suggestion").toggle_auto_trigger()
-
-			local cmp = require("cmp")
-			cmp.event:on("menu_opened", function()
-				vim.b.copilot_suggestion_hidden = true
-			end)
-
-			cmp.event:on("menu_closed", function()
-				vim.b.copilot_suggestion_hidden = false
-			end)
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end
+	},
+	-- Copilot completion
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = {
+			"zbirenbaum/copilot.lua",
+		},
+		config = function()
+			require("copilot_cmp").setup()
 		end
 	},
 	-- Surround
