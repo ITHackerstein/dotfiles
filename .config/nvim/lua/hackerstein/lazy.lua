@@ -46,6 +46,17 @@ require("lazy").setup({
 		"lewis6991/gitsigns.nvim",
 		config = true
 	},
+	-- Neogit
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+
+			"nvim-telescope/telescope.nvim"
+		},
+		config = true
+	},
 	-- Fuzzy finder
 	{
 		"nvim-telescope/telescope.nvim",
@@ -63,13 +74,11 @@ require("lazy").setup({
 			})
 			require('telescope').load_extension('fzf')
 
-			require("which-key").register({
-				f = {
-					name = "Fuzzy finding",
-					f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find files" },
-					g = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Find in files" }
-				},
-			}, { prefix = "<leader>" })
+			require("which-key").add({
+				{ "<leader>f", group = "Fuzzy finding" },
+				{ "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", desc = "Find files" },
+				{ "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", desc = "Find in files" },
+			})
 		end
 	},
 	{
@@ -192,31 +201,25 @@ require("lazy").setup({
 			lsp_zero.extend_lspconfig()
 
 			lsp_zero.on_attach(function(client, buffer)
-				require("which-key").register({
-					g = {
-						name = "Go to...",
-						d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
-						D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
-						i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation" },
-						o = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type definition" },
-						r = { "<cmd>Telescope lsp_references<cr>", "References" },
-						s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature help" },
-						K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Symbol information" }
-					},
-					d = {
-						name = "Diagnostics",
-						o = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open float" },
-						p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Previous" },
-						n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next" }
-					},
-					c = {
-						name = "Code actions",
-						r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-						f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
-						a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Action" },
-						s = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Header/Source (C/C++ only)" }
-					}
-				}, { prefix = "<leader>", buffer = buffer })
+				require("which-key").add({
+					{ "<leader>c", buffer = buffer, group = "Code actions" },
+					{ "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", buffer = buffer, desc = "Action" },
+					{ "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", buffer = buffer, desc = "Format" },
+					{ "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", buffer = buffer, desc = "Rename" },
+					{ "<leader>cs", "<cmd>ClangdSwitchSourceHeader<cr>", buffer = buffer, desc = "Switch Header/Source (C/C++ only)" },
+					{ "<leader>d", buffer = buffer, group = "Diagnostics" },
+					{ "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<cr>", buffer = buffer, desc = "Next" },
+					{ "<leader>do", "<cmd>lua vim.diagnostic.open_float()<cr>", buffer = buffer, desc = "Open float" },
+					{ "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", buffer = buffer, desc = "Previous" },
+					{ "<leader>g", buffer = buffer, group = "Go to..." },
+					{ "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", buffer = buffer, desc = "Declaration" },
+					{ "<leader>gK", "<cmd>lua vim.lsp.buf.hover()<cr>", buffer = buffer, desc = "Symbol information" },
+					{ "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>", buffer = buffer, desc = "Definition" },
+					{ "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", buffer = buffer, desc = "Implementation" },
+					{ "<leader>go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", buffer = buffer, desc = "Type definition" },
+					{ "<leader>gr", "<cmd>Telescope lsp_references<cr>", buffer = buffer, desc = "References" },
+					{ "<leader>gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", buffer = buffer, desc = "Signature help" },
+				})
 			end)
 
 			require("mason-lspconfig").setup({
@@ -241,20 +244,17 @@ require("lazy").setup({
 		config = function()
 			require("mason-nvim-dap").setup()
 
-			require("which-key").register({
-				D = {
-					name = "Debugging",
-					c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
-					n = { "<cmd>lua require('dap').step_over()<cr>", "Step over" },
-					s = { "<cmd>lua require('dap').step_into()<cr>", "Step into" },
-					b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle breakpoint" },
-					r = { "<cmd>lua require('dap').repl.open()<cr>", "Open REPL" },
-					h = { "<cmd>lua require('dap.ui.widgets').hover()<cr>", "Hover" },
-					p = { "<cmd>lua require('dap.ui.widgets').preview()<cr>", "Preview" },
-					f = { "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames)<cr>", "Frames" },
-					s = { "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').scopes)<cr>", "Scopes" }
-				}
-			}, { prefix = "<leader>" })
+			require("which-key").add({
+				{ "<leader>D", group = "Debugging" },
+				{ "<leader>Db", "<cmd>lua require('dap').toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
+				{ "<leader>Dc", "<cmd>lua require('dap').continue()<cr>", desc = "Continue" },
+				{ "<leader>Df", "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames)<cr>", desc = "Frames" },
+				{ "<leader>Dh", "<cmd>lua require('dap.ui.widgets').hover()<cr>", desc = "Hover" },
+				{ "<leader>Dn", "<cmd>lua require('dap').step_over()<cr>", desc = "Step over" },
+				{ "<leader>Dp", "<cmd>lua require('dap.ui.widgets').preview()<cr>", desc = "Preview" },
+				{ "<leader>Dr", "<cmd>lua require('dap').repl.open()<cr>", desc = "Open REPL" },
+				{ "<leader>Ds", "<cmd>lua require('dap').step_into()<cr>", desc = "Step into" }
+			})
 		end
 	},
 	-- Lualine
@@ -304,13 +304,11 @@ require("lazy").setup({
 		config = function()
 			require("gui-font-resize").setup()
 
-			require("which-key").register({
-				F = {
-					name = "Font size",
-					u = { "<cmd>GUIFontSizeUp<cr>", "Up" },
-					d = { "<cmd>GUIFontSizeDown<cr>", "Down" }
-				},
-			}, { prefix = "<leader>" })
+			require("which-key").add({
+				{ "<leader>F", group = "Font size" },
+				{ "<leader>Fd", "<cmd>GUIFontSizeDown<cr>", desc = "Down" },
+				{ "<leader>Fu", "<cmd>GUIFontSizeUp<cr>", desc = "Up" },
+			})
 		end
 	},
 	-- Null LS
