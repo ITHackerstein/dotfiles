@@ -24,7 +24,7 @@ vim.opt.splitbelow = true
 
 -- List chars
 vim.opt.list = true
-vim.opt.listchars = { tab = "-→", space = "·" }
+vim.opt.listchars = { tab = "--→", space = "·" }
 
 -- Remove trailing whitespaces on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
