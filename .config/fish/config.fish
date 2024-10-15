@@ -108,10 +108,5 @@ set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 
 function fish_greeting
-	pfetch
+	fastfetch -c examples/8.jsonc
 end
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# eval /home/davide/.pyenv/versions/anaconda3-2021.05/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
