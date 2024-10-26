@@ -12,21 +12,20 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- Colorscheme
+	-- -- Colorscheme
 	{
-		"sainnhe/everforest",
+		"slugbyte/lackluster.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			vim.opt.termguicolors = true
-			vim.g.everforest_background = "hard"
-			vim.cmd[[colorscheme everforest]]
+			vim.background = "dark"
+			vim.cmd.colorscheme("lackluster-hack")
 
 			-- latex tweak for Conceal
 			vim.cmd[[ hi! link Conceal LocalIdent ]]
 		end
 	},
-	-- Which key
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
