@@ -1,5 +1,0 @@
-map <F1> <Esc>
-imap <F1> <Esc>
-vmap <F1> <Esc>
-map tn :tabn<CR>
-map tp :tabp<CR>
