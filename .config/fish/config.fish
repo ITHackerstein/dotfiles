@@ -31,11 +31,6 @@ alias cpclip='xclip -selection clipboard'
 # Dotfiles managing
 alias dotfm='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
-# PyEnv
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
-
 # GoBuster
 # export PATH="/opt/gobuster:$PATH"
 

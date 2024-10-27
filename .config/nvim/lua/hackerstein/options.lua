@@ -13,7 +13,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
 -- Tab settings
-vim.cmd[[filetype indent off]]
+vim.cmd[[filetype plugin indent off]]
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
@@ -45,4 +45,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 
 vim.cmd[[set exrc]]
 
-vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "*" }, command = "vmap <silent> <C-b> Si\\textbf{<CR>}<CR>" })
+vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "tex" }, command = "vmap <silent> <C-b> Si\\textbf{<CR>}<CR>" })
+vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "python,rust" }, command = "setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab" })
+vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "gitcommit" }, command = "setlocal tw=72" })

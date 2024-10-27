@@ -289,18 +289,17 @@ require("lazy").setup({
 	-- Fidget
 	{
 		"j-hui/fidget.nvim",
-		tag = "legacy",
-		opts = {
-			align = {
-				bottom = false,
-				right = true
-			}
-		}
+		tag = "v1.4.5",
+		opts = {}
 	},
 	-- Notify
 	{
 		"rcarriga/nvim-notify",
-		lazy = false
+		-- lazy = false,
+		-- priority = 1000,
+		config = function()
+			vim.notify = require("notify")
+		end
 	},
 	-- Trouble
 	{
