@@ -278,7 +278,7 @@ require("lazy").setup({
 		config = function()
 			vim.cmd[[filetype plugin on]]
 
-			vim.g.vimtex_view_method = "zathura"
+			vim.g.vimtex_view_method = "zathura_simple"
 			vim.g.maplocalleader = "\\"
 
 			-- Conceal
