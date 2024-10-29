@@ -131,13 +131,9 @@ require("lazy").setup({
 	-- LSP Zero
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
+		branch = "v4.x",
 		lazy = true,
-		config = false,
-		init = function()
-			vim.g.lsp_zero_extend_cmp = 0
-			vim.g.lsp_zero_extend_lspconfig = 0
-		end
+		config = false
 	},
 	-- Mason
 	{
@@ -155,6 +151,7 @@ require("lazy").setup({
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
+			"onsails/lspkind.nvim"
 		},
 		config = function()
 			local lsp_zero = require("lsp-zero")
@@ -162,6 +159,8 @@ require("lazy").setup({
 
 			local cmp = require("cmp")
 			local cmp_action = lsp_zero.cmp_action()
+
+			local lspkind = require("lspkind")
 
 			require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -173,7 +172,9 @@ require("lazy").setup({
 					{ name = "luasnip" },
 					{ name = "copilot" }
 				},
-				formatting = lsp_zero.cmp_format(),
+				formatting = {
+					format = lspkind.cmp_format()
+				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-e>"] = cmp.mapping.abort(),
 					["<C-Space>"] = cmp.mapping.complete(),
@@ -207,29 +208,32 @@ require("lazy").setup({
 		},
 		config = function()
 			local lsp_zero = require("lsp-zero")
-			lsp_zero.extend_lspconfig()
-
-			lsp_zero.on_attach(function(client, buffer)
-				require("which-key").add({
-					{ "<leader>c", buffer = buffer, group = "Code actions" },
-					{ "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", buffer = buffer, desc = "Action" },
-					{ "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", buffer = buffer, desc = "Format" },
-					{ "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", buffer = buffer, desc = "Rename" },
-					{ "<leader>cs", "<cmd>ClangdSwitchSourceHeader<cr>", buffer = buffer, desc = "Switch Header/Source (C/C++ only)" },
-					{ "<leader>d", buffer = buffer, group = "Diagnostics" },
-					{ "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<cr>", buffer = buffer, desc = "Next" },
-					{ "<leader>do", "<cmd>lua vim.diagnostic.open_float()<cr>", buffer = buffer, desc = "Open float" },
-					{ "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", buffer = buffer, desc = "Previous" },
-					{ "<leader>g", buffer = buffer, group = "Go to..." },
-					{ "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", buffer = buffer, desc = "Declaration" },
-					{ "<leader>gK", "<cmd>lua vim.lsp.buf.hover()<cr>", buffer = buffer, desc = "Symbol information" },
-					{ "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>", buffer = buffer, desc = "Definition" },
-					{ "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", buffer = buffer, desc = "Implementation" },
-					{ "<leader>go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", buffer = buffer, desc = "Type definition" },
-					{ "<leader>gr", "<cmd>Telescope lsp_references<cr>", buffer = buffer, desc = "References" },
-					{ "<leader>gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", buffer = buffer, desc = "Signature help" },
-				})
-			end)
+			lsp_zero.extend_lspconfig({
+				capabilities = require('cmp_nvim_lsp').default_capabilities(),
+				lsp_attach = function(client, buffer)
+					require("which-key").add({
+						{ "<leader>c", buffer = buffer, group = "Code actions" },
+						{ "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", buffer = buffer, desc = "Action" },
+						{ "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", buffer = buffer, desc = "Format" },
+						{ "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", buffer = buffer, desc = "Rename" },
+						{ "<leader>cs", "<cmd>ClangdSwitchSourceHeader<cr>", buffer = buffer, desc = "Switch Header/Source (C/C++ only)" },
+						{ "<leader>d", buffer = buffer, group = "Diagnostics" },
+						{ "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<cr>", buffer = buffer, desc = "Next" },
+						{ "<leader>do", "<cmd>lua vim.diagnostic.open_float()<cr>", buffer = buffer, desc = "Open float" },
+						{ "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", buffer = buffer, desc = "Previous" },
+						{ "<leader>g", buffer = buffer, group = "Go to..." },
+						{ "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", buffer = buffer, desc = "Declaration" },
+						{ "<leader>gK", "<cmd>lua vim.lsp.buf.hover()<cr>", buffer = buffer, desc = "Symbol information" },
+						{ "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>", buffer = buffer, desc = "Definition" },
+						{ "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", buffer = buffer, desc = "Implementation" },
+						{ "<leader>go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", buffer = buffer, desc = "Type definition" },
+						{ "<leader>gr", "<cmd>Telescope lsp_references<cr>", buffer = buffer, desc = "References" },
+						{ "<leader>gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", buffer = buffer, desc = "Signature help" },
+					})
+				end,
+				float_border = 'rounded',
+				sign_text = true
+			})
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {},
