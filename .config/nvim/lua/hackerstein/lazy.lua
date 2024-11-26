@@ -22,8 +22,15 @@ require("lazy").setup({
 			vim.background = "dark"
 			vim.cmd.colorscheme("lackluster-hack")
 
-			-- latex tweak for Conceal
-			vim.cmd[[ hi! link Conceal LocalIdent ]]
+			-- tex tweaks
+			vim.cmd[[hi! link texMathEnvArgName texEnvArgName]]
+			vim.cmd[[hi! link texMathZone LocalIdent]]
+			vim.cmd[[hi! link texMathZoneEnv texMathZone]]
+			vim.cmd[[hi! link texMathZoneEnvStarred texMathZone]]
+			vim.cmd[[hi! link texMathZoneX texMathZone]]
+			vim.cmd[[hi! link texMathZoneXX texMathZone]]
+			vim.cmd[[hi! link texMathZoneEnsured texMathZone]]
+			vim.cmd[[hi! link Conceal LocalIdent]]
 		end
 	},
 	{
