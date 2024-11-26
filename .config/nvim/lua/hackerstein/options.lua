@@ -43,7 +43,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 	command = "if mode() != 'c' | checktime | endif"
 })
 
-vim.cmd[[set exrc]]
+-- Better clipboard
+vim.cmd[[set clipboard+=unnamedplus]]
 
 vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "tex" }, command = "vmap <silent> <C-b> Si\\textbf{<CR>}<CR>" })
 vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "python,rust" }, command = "setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab" })
