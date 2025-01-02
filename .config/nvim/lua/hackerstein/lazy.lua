@@ -376,5 +376,15 @@ require("lazy").setup({
 		config = function()
 			require("nvim-surround").setup({})
 		end
+	},
+	-- mini.ai
+	{
+		"echasnovski/mini.ai",
+		version = '*'
+	},
+	-- eyeliner
+	{
+		"jinh0/eyeliner.nvim",
+		enabled = false
 	}
 })

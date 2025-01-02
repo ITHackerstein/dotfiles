@@ -46,6 +46,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 -- Better clipboard
 vim.cmd[[set clipboard+=unnamedplus]]
 
+-- Mappings
+-- vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "tex" }, command = "imap <silent> <C-b> \\textbf{}<Left>" })
+-- vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "tex" }, command = "imap <silent> <C-i> \\textit{}<Left>" })
 vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "tex" }, command = "vmap <silent> <C-b> Si\\textbf{<CR>}<CR>" })
+vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "tex" }, command = "vmap <silent> <C-i> Si\\textit{<CR>}<CR>" })
 vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "python,rust" }, command = "setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab" })
 vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "gitcommit" }, command = "setlocal tw=72" })
