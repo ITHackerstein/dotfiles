@@ -223,7 +223,7 @@ require("lazy").setup({
 						{ "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", buffer = buffer, desc = "Action" },
 						{ "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", buffer = buffer, desc = "Format" },
 						{ "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", buffer = buffer, desc = "Rename" },
-						{ "<leader>cs", "<cmd>ClangdSwitchSourceHeader<cr>", buffer = buffer, desc = "Switch Header/Source (C/C++ only)" },
+						{ "<leader>cs", "<cmd>LspClangdSwitchSourceHeader<cr>", buffer = buffer, desc = "Switch Header/Source (C/C++ only)" },
 						{ "<leader>d", buffer = buffer, group = "Diagnostics" },
 						{ "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<cr>", buffer = buffer, desc = "Next" },
 						{ "<leader>do", "<cmd>lua vim.diagnostic.open_float()<cr>", buffer = buffer, desc = "Open float" },
