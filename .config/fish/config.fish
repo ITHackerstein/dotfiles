@@ -58,6 +58,9 @@ set -gx PATH "$HOME/.cargo/bin" $PATH;
 set -gx PATH "$HOME/.dotnet" $PATH;
 set -gx PATH "$HOME/.dotnet/tools" $PATH;
 
+# Inits Zoxide
+zoxide init fish | source
+
 # Flatpak
 set -l xdg_data_home $XDG_DATA_HOME ~/.local/share
 set -gx --path XDG_DATA_DIRS $xdg_data_home[1]/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
