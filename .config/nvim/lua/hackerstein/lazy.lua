@@ -386,5 +386,17 @@ require("lazy").setup({
 	{
 		"jinh0/eyeliner.nvim",
 		enabled = false
+	},
+	-- todo-comments
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("todo-comments").setup({})
+			require("which-key").add({
+				{ "<leader>f", group = "Fuzzy finding" },
+				{ "<leader>ft", "<cmd>:TodoTelescope<cr>", desc = "Find TODOs" },
+			})
+		end
 	}
 })
