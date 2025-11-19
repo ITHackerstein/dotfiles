@@ -14,13 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- Colorscheme
 	{
-		"slugbyte/lackluster.nvim",
+		"xero/miasma.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.opt.termguicolors = true
-			vim.background = "dark"
-			vim.cmd.colorscheme("lackluster-hack")
+			vim.cmd.colorscheme("miasma")
 
 			-- tex tweaks
 			vim.cmd[[hi! link texMathEnvArgName texEnvArgName]]
@@ -33,6 +31,7 @@ require("lazy").setup({
 			vim.cmd[[hi! link Conceal LocalIdent]]
 		end
 	},
+	-- Which key
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -58,7 +57,6 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"sindrets/diffview.nvim",
-
 			"nvim-telescope/telescope.nvim"
 		},
 		config = true
@@ -167,8 +165,6 @@ require("lazy").setup({
 			local cmp = require("cmp")
 			local cmp_action = lsp_zero.cmp_action()
 
-			local lspkind = require("lspkind")
-
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			cmp.setup({
@@ -178,9 +174,6 @@ require("lazy").setup({
 					{ name = "path" },
 					{ name = "luasnip" },
 					{ name = "copilot" }
-				},
-				formatting = {
-					format = lspkind.cmp_format()
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-e>"] = cmp.mapping.abort(),
@@ -280,7 +273,13 @@ require("lazy").setup({
 	-- Lualine
 	{
 		"nvim-lualine/lualine.nvim",
-		config = true
+		opts = {
+			options = {
+				theme = "auto",
+				component_separators = '',
+				section_separators = ''
+			}
+		}
 	},
 	-- VimTex
 	{
@@ -300,7 +299,6 @@ require("lazy").setup({
 	-- Fidget
 	{
 		"j-hui/fidget.nvim",
-		tag = "v1.4.5",
 		opts = {}
 	},
 	-- Notify
@@ -398,5 +396,16 @@ require("lazy").setup({
 				{ "<leader>ft", "<cmd>:TodoTelescope<cr>", desc = "Find TODOs" },
 			})
 		end
+	},
+	-- indent-blankline
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {
+			scope = {
+				show_start = false,
+				show_end = false
+			}
+		}
 	}
 })

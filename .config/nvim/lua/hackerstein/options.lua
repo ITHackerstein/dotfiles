@@ -22,10 +22,6 @@ vim.opt.expandtab = false
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- List chars
-vim.opt.list = true
-vim.opt.listchars = { tab = "-->", space = "·" }
-
 -- Remove trailing whitespaces on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*" },
@@ -34,6 +30,21 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		vim.cmd[[%s/\s\+$//e]]
 		vim.fn.setpos(".", cursor_pos)
 	end
+})
+
+-- Window settings
+vim.opt.winborder = "rounded"
+
+-- Diagnostics settings
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN]  = "",
+			[vim.diagnostic.severity.INFO]  = "",
+			[vim.diagnostic.severity.HINT]  = "󰌵",
+		}
+	}
 })
 
 -- Autoread
