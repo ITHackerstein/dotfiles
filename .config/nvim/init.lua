@@ -1,2 +1,2 @@
-require("hackerstein.lazy")
-require("hackerstein.options")
+require("config.lazy")
+require("config.options")
