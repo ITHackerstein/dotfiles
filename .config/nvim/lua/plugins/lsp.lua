@@ -37,8 +37,12 @@ return {
                 vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
 
                 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-                vim.keymap.set("n", "<leader>cr", vim.lsp.buf.format, opts)
-                vim.keymap.set("n", "<leader>cf", vim.lsp.buf.rename, opts)
+                vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, opts)
+                vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+
+                if vim.lsp.get_client_by_id(args.data.client_id).name == "clangd" then
+                    vim.keymap.set("n", "<leader>cs", ":LspClangdSwitchSourceHeader<CR>", opts)
+                end
             end
         })
     end
