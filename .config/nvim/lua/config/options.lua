@@ -22,6 +22,7 @@ vim.diagnostic.config({
 		}
 	}
 })
+vim.cmd[[filetype indent off]]
 
 -- Automatically reload files
 vim.opt.autoread = true
