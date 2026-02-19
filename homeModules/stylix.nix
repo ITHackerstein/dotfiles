@@ -63,7 +63,5 @@ in
             [Icons]
             Theme=${config.stylix.icons.dark}
         '';
-
-        fonts.fontconfig.enable = true;
     };
 }

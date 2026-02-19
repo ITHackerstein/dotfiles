@@ -11,6 +11,7 @@
         ./fastfetch.nix
         ./fd.nix
         ./file-browser
+        ./fonts.nix
         ./fzf.nix
         ./gh.nix
         ./git.nix
@@ -45,6 +46,10 @@
     custom.eza.enable = lib.mkDefault true;
     custom.fastfetch.enable = lib.mkDefault true;
     custom.file-browser.dolphin.enable = lib.mkDefault true;
+    custom.fonts = lib.mkDefault {
+        enable = true;
+        enableWinFonts = true;
+    };
     custom.git.enable = lib.mkDefault true;
     custom.grimblast.enable = lib.mkDefault true;
     custom.hyprpaper.enable = lib.mkDefault true;
