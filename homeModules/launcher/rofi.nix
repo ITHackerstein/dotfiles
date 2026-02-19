@@ -56,11 +56,13 @@ in
                     text-color = mkLiteral "@fg1";
                     background-color = mkLiteral "@bg0";
                 };
-                "entry, prompt" = {
-                    padding = mkLiteral "0.5em";
+                entry = {
+                    padding = mkLiteral "0.5em 0.125em";
                     text-color = mkLiteral "inherit";
                 };
                 prompt = {
+                    padding = mkLiteral "0.5em";
+                    text-color = mkLiteral "inherit";
                     background-color = mkLiteral "@orange";
                 };
                 "message, error-message" = {
