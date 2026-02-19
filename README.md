@@ -8,7 +8,7 @@ For now I'm assuming that you are setting up the disk with a boot partition and 
 nix-shell -p btrfs-progs
 
 # Setup the two partitions
-fdisk /dev/sdx
+sudo fdisk /dev/sdx
 # Format and label the two partitions
 sudo mkfs.fat -F32 /dev/sdx1
 sudo fatlabel /dev/sdx1 NIXBOOT
