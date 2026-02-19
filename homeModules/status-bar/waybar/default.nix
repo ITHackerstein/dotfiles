@@ -137,6 +137,7 @@ in
                     };
                     clock = {
                         interval = 1;
+                        tooltip = false;
                         format = "󰥔 {:%T}";
                         format-alt = "󰃭 {:%F}";
                     };
