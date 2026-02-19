@@ -1,0 +1,78 @@
+* {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    font-size: 18px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @base05;
+}
+
+.module {
+    background-color: @base00;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+}
+
+#power {
+    border-radius: 0.25em;
+    background-color: @base00;
+}
+
+#custom-power {
+    background-color: @base08;
+}
+
+#custom-shutdown, #custom-reboot, #custom-logout {
+    padding: 0 0.5em 0 0.25em;
+    border-radius: 0;
+    background: none;
+}
+
+#workspaces button {
+    color: @base05;
+}
+
+#workspaces button.active {
+    box-shadow: 0 0.125em @base09;
+}
+
+#workspaces button:hover {
+    background: none;
+    box-shadow: 0 0.125em @base04;
+    color: @base05;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+#mpris.spotify {
+    background-color: @base0B;
+}
+
+#mpris.mpv, #mpris.vlc {
+    background-color: @base09;
+}
+
+#audio {
+    padding: 0 0.25em;
+    border-radius: 0.25em;
+    background-color: @base00;
+}
+
+.speakers, .microphone {
+    border-radius: 0;
+    padding: 0 0.25em;
+    background: none;
+}
+
+.speakers {
+    border-right: 0.125em solid @base02;
+}
