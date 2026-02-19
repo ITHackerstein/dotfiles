@@ -66,9 +66,11 @@ in
                     "$mod, S, togglespecialworkspace, magic"
                     "$mod SHIFT, S, movetoworkspace, special:magic"
 
-                    "$mod, Print, exec, grimblast --freeze copy area"
+                    ", Print, exec, grimblast --freeze copy area"
                     "$mod, Print, exec, grimblast copy screen"
                     "$mod SHIFT, Print, exec, grimblast copy active"
+
+                    "$mod SHIFT, Space, exec, hyprctl switchxkblayout current next"
                 ]
                 ++ (
                     builtins.concatLists (builtins.genList (i:
