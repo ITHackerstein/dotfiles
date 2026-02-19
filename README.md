@@ -51,12 +51,12 @@ sudo nixos-install --root /mnt --flake /path/to/dotfiles#new-host
 
 Once installed, remember to change the permissions of the dotfiles if you don't want them to be owned by root:
 ```bash
-sudo nixos-enter --root /mnt 'chown -R <user>:users /path/to/dotfiles'
+sudo nixos-enter --root -c /mnt 'chown -R <user>:users /path/to/dotfiles'
 ```
 
 And, as a last step, remember to change the password of each user:
 ```bash
-sudo nixos-enter --root /mnt 'passwd <user>'
+sudo nixos-enter --root -c /mnt 'passwd <user>'
 ```
 
 Now you can reboot the system, open a shell for the user and run
