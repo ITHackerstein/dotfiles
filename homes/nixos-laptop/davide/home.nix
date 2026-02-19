@@ -18,4 +18,6 @@
     imports = [
         ../../../homeModules
     ];
+
+    stylix.fonts.sizes.terminal = 14;
 }

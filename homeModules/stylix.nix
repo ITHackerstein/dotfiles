@@ -31,10 +31,10 @@ in
                     name = "Apple Color Emoji";
                 };
                 sizes = {
-                    desktop = 10;
-                    popups = 10;
-                    applications = 11;
-                    terminal = 12;
+                    desktop = lib.mkDefault 10;
+                    popups = lib.mkDefault 10;
+                    applications = lib.mkDefault 11;
+                    terminal = lib.mkDefault 12;
                 };
             };
             cursor = {
