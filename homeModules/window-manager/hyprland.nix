@@ -24,6 +24,11 @@ in
                 input = {
                     kb_layout = "us,us";
                     kb_variant = ",intl";
+
+                    touchpad = {
+                        tap-to-click = false;
+                        natural_scroll = true;
+                    };
                 };
                 general = {
                     gaps_in = 4;
