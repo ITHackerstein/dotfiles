@@ -55,7 +55,7 @@ in
                     "custom/logout" = { "format" = "󰈆"; "tooltip" = false; on-click = "hyprctl dispatch exit"; };
                     "hyprland/workspaces" = {
                         persistent-workspaces = {
-                            "*" = 5;
+                            "*" = 9;
                         };
                     };
                     "hyprland/window" = {
