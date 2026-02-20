@@ -10,7 +10,7 @@ in
     config = lib.mkIf cfg.enable {
         programs.zoxide = {
             enable = true;
-            enableFishIntegration = lib.mkIf config.custom.shell.fish.enable true;
+            enableFishIntegration = true;
             options = [ "--cmd cd" ];
         };
     };

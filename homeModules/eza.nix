@@ -11,7 +11,7 @@ in
         programs.eza = {
             enable = true;
             extraOptions = [ "--icons" "--group-directories-first" ];
-            enableFishIntegration = lib.mkIf config.custom.shell.fish.enable true;
+            enableFishIntegration = true;
         };
     };
 }
