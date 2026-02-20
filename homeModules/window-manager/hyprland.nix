@@ -108,6 +108,7 @@ in
                     "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
                     "float,move (monitor_w*0.5) (monitor_h*0.5),class:nm-connection-editor"
+                    "float,move (monitor_w*0.5) (monitor_h*0.5),class:com.saivert.pwvucontrol"
                     "float,pin,class:firefox,title:Picture-in-Picture"
                 ];
             };
