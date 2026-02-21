@@ -15,6 +15,7 @@ in
                 "$mod" = "SUPER";
                 monitor = ",1920x1080@75,0x0,1";
                 exec-once = [
+                    "hypridle"
                     "hyprpaper"
                     "waybar"
                     "nm-applet"
