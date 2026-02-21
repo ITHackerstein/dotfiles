@@ -43,6 +43,7 @@ in
                             "custom/shutdown"
                             "custom/reboot"
                             "custom/logout"
+                            "custom/lock"
                         ];
                         drawer = {
                             transition-duration = 200;
@@ -53,6 +54,7 @@ in
                     "custom/shutdown" = { "format" = "󰐥"; "tooltip" = false; on-click = "shutdown now"; };
                     "custom/reboot" = { "format" = "󰜉"; "tooltip" = false; on-click = "reboot"; };
                     "custom/logout" = { "format" = "󰈆"; "tooltip" = false; on-click = "hyprctl dispatch exit"; };
+                    "custom/lock" = { "format" = "󰌾"; "tooltip" = false; on-click = "hyprctl dispatch exec hyprlock"; };
                     "hyprland/workspaces" = {
                         persistent-workspaces = {
                             "*" = 9;

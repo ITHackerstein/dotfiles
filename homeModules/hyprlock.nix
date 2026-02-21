@@ -26,10 +26,10 @@ in
                 };
                 label = [
                     {
-                        text = "<span> </span>";
+                        text = "<span>󰌾 </span>";
                         font_family = config.stylix.fonts.monospace.name;
                         font_size = 24;
-                        position = "0, -32";
+                        position = "6, -32";
                         halign = "center";
                         valign = "top";
                         color = "${config.lib.stylix.colors.base05}";

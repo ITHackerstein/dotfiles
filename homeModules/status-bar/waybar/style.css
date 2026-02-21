@@ -27,7 +27,7 @@ window#waybar {
     background-color: @base08;
 }
 
-#custom-shutdown, #custom-reboot, #custom-logout {
+#custom-shutdown, #custom-reboot, #custom-logout, #custom-lock {
     padding: 0 0.5em 0 0.25em;
     border-radius: 0;
     background: none;
