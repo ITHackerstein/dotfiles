@@ -3,6 +3,7 @@ let
     cfg = config.custom.launcher.rofi;
     # FIXME: Untie this from stylix if not enabled
     colors = config.lib.stylix.colors.withHashtag;
+    inherit (config.lib.formats.rasi) mkLiteral;
 in
 {
     options.custom.launcher.rofi = {
@@ -13,7 +14,16 @@ in
         programs.rofi = {
             enable = true;
             terminal = "${pkgs.kitty}/bin/kitty";
-            modes = [ "drun" "recursivebrowser" ];
+            plugins = [
+                pkgs.rofi-emoji
+                pkgs.rofi-calc
+            ];
+            modes = [
+                "drun"
+                "recursivebrowser"
+                "calc"
+                "emoji"
+            ];
             cycle = true;
             extraConfig = {
                 sidebar-mode = true;
@@ -21,12 +31,17 @@ in
                 icon-theme = "Papirus";
                 display-drun = "󱓞  Run:";
                 display-recursivebrowser = "󰉋  Files:";
+                display-calc = "󰃬 Calculator:";
+                display-emoji = "󰞅  Emoji:";
+                emoji-mode = "copy";
+                "// porkaround" = mkLiteral ''
+
+                calc {
+                    calc-command: "${pkgs.coreutils}/bin/echo -n '{result}' | ${pkgs.wl-clipboard}/bin/wl-copy";
+                    no-history: true;
+                } // '';
             };
-            theme =
-            let
-                inherit (config.lib.formats.rasi) mkLiteral;
-            in
-            {
+            theme = {
                 "*" = {
                     bg0 = mkLiteral colors.base00;
                     bg1 = mkLiteral colors.base01;
@@ -34,14 +49,14 @@ in
                     fg0 = mkLiteral colors.base06;
                     fg1 = mkLiteral colors.base05;
                     gray = mkLiteral colors.base04;
-                    orange = mkLiteral colors.base09;
+                    blue = mkLiteral colors.base0D;
                     margin = 0;
                     padding = 0;
                     spacing = 0;
                     background-color = mkLiteral "transparent";
                 };
                 window = {
-                    width = 500;
+                    width = 600;
                     location = mkLiteral "north";
                     anchor = mkLiteral "center";
                     y-offset = mkLiteral "32px";
@@ -63,7 +78,7 @@ in
                 prompt = {
                     padding = mkLiteral "0.5em";
                     text-color = mkLiteral "inherit";
-                    background-color = mkLiteral "@orange";
+                    background-color = mkLiteral "@blue";
                 };
                 "message, error-message" = {
                     padding = mkLiteral "0.5em";
