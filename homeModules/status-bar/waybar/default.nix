@@ -32,6 +32,7 @@ in
                         "group/audio"
                         "backlight"
                         "battery"
+                        "idle_inhibitor"
                         "tray"
                         "hyprland/language"
                         "clock"
@@ -125,6 +126,14 @@ in
                         format-icons = {
                             default = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
                             charging = [ "󰢟" "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
+                        };
+                    };
+                    idle_inhibitor = {
+                        format = "{icon}";
+                        tooltip = false;
+                        format-icons = {
+                            activated = "󰈈 ";
+                            deactivated = "󰈉 ";
                         };
                     };
                     tray = {
