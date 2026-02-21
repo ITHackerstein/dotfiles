@@ -16,6 +16,7 @@
         ./gh.nix
         ./git.nix
         ./grimblast.nix
+        ./hyprlock.nix
         ./hyprpaper.nix
         ./hyprpolkitagent.nix
         ./kdeconnect.nix
@@ -49,6 +50,7 @@
     custom.file-browser.dolphin.enable = lib.mkDefault true;
     custom.git.enable = lib.mkDefault true;
     custom.grimblast.enable = lib.mkDefault true;
+    custom.hyprlock.enable = lib.mkDefault true;
     custom.hyprpaper.enable = lib.mkDefault true;
     custom.kdeconnect.enable = lib.mkDefault true;
     custom.launcher.rofi.enable = lib.mkDefault true;
