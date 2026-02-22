@@ -59,7 +59,7 @@ in
                     "$mod SHIFT, Q, exit"
                     "$mod, Q, killactive"
                     "$mod, Return, exec, kitty"
-                    "$mod, Space, exec, rofi -show"
+                    "$mod, Space, exec, rofi -emoji-mode copy -show"
                     "$mod, V, togglefloating"
                     "$mod, P, pseudo"
                     "$mod, J, togglesplit"

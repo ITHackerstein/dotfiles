@@ -33,7 +33,6 @@ in
                 display-recursivebrowser = "󰉋  Files:";
                 display-calc = "󰃬 Calculator:";
                 display-emoji = "󰞅  Emoji:";
-                emoji-mode = "copy";
                 "// porkaround" = mkLiteral ''
 
                 calc {
