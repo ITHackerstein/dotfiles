@@ -5,5 +5,9 @@
             "<leader>ff" = "find_files";
             "<leader>fg" = "live_grep";
         };
+        extensions = {
+            fzf-native.enable = true;
+            ui-select.enable = true;
+        };
     };
 }

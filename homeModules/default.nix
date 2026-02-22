@@ -12,7 +12,6 @@
         ./fd.nix
         ./file-browser
         ./fonts.nix
-        ./fzf.nix
         ./gh.nix
         ./git.nix
         ./grimblast.nix
