@@ -29,10 +29,10 @@ in
                 sidebar-mode = true;
                 show-icons = true;
                 icon-theme = "Papirus";
-                display-drun = "󱓞  Run:";
-                display-recursivebrowser = "󰉋  Files:";
-                display-calc = "󰃬 Calculator:";
-                display-emoji = "󰞅  Emoji:";
+                display-drun = "󱓞  Run";
+                display-recursivebrowser = "󰉋  Files";
+                display-calc = "󰃬 Calculator";
+                display-emoji = "󰞅  Emoji";
                 "// porkaround" = mkLiteral ''
 
                 calc {
