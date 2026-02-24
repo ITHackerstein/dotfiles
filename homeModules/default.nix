@@ -34,6 +34,7 @@
         ./status-bar
         ./stylix.nix
         ./terminal
+        ./typst.nix
         ./video-player
         ./window-manager
         ./xdg.nix
@@ -66,6 +67,7 @@
     custom.status-bar.waybar.enable = lib.mkDefault true;
     custom.stylix.enable = lib.mkDefault true;
     custom.terminal.kitty.enable = lib.mkDefault true;
+    custom.typst.enable = lib.mkDefault true;
     custom.video-player.vlc.enable = lib.mkDefault true;
     custom.window-manager.hyprland.enable = lib.mkDefault true;
     custom.xdg.enable = lib.mkDefault true;

@@ -11,6 +11,7 @@
         ./notify.nix
         ./surround.nix
         ./telescope.nix
+        ./typst-preview.nix
         ./todo-comments.nix
         ./treesitter.nix
         ./vimtex.nix

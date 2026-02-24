@@ -4,6 +4,7 @@
             enable = true;
             servers = {
                 clangd.enable = true;
+                tinymist.enable = true;
             };
             onAttach = ''
                 local telescope_builtin = require("telescope.builtin")
