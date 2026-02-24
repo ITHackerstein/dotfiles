@@ -7,7 +7,7 @@ in
         enable = lib.mkEnableOption "enable garbage collection";
     };
 
-    config = {
+    config = lib.mkIf cfg.enable {
         nix.optimise.automatic = true;
         nix.gc = {
             automatic = true;
