@@ -3,8 +3,8 @@
     programs.fish = {
         enable = true;
         generateCompletions = true;
-        functions = lib.mkIf config.custom.fastfetch.enable {
-            fish_greeting = "fastfetch -c examples/8.jsonc";
+        functions = lib.mkIf config.custom.microfetch.enable {
+            fish_greeting = "microfetch";
         };
     };
 }

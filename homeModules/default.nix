@@ -9,7 +9,7 @@
         ./direnv.nix
         ./editor
         ./eza.nix
-        ./fastfetch.nix
+        ./microfetch.nix
         ./fd.nix
         ./file-browser
         ./fonts.nix
@@ -48,7 +48,7 @@
     custom.direnv.enable = lib.mkDefault true;
     custom.editor.nixvim.enable = lib.mkDefault true;
     custom.eza.enable = lib.mkDefault true;
-    custom.fastfetch.enable = lib.mkDefault true;
+    custom.microfetch.enable = lib.mkDefault true;
     custom.file-browser.dolphin.enable = lib.mkDefault true;
     custom.git.enable = lib.mkDefault true;
     custom.grimblast.enable = lib.mkDefault true;
