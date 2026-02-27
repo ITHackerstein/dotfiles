@@ -1,8 +1,8 @@
 { lib, pkgs, users, ... }:
 {
-    programs.fish.enable = true;
+    programs.bash.enable = true;
     users = {
-        defaultUserShell = pkgs.fish;
+        defaultUserShell = pkgs.bash;
         users = lib.foldl' (acc: user:
             acc // {
                 ${user} = {

@@ -29,7 +29,7 @@
         ./pwvucontrol.nix
         ./qbittorrent.nix
         ./ripgrep.nix
-        ./shell
+        ./shell.nix
         ./spotify.nix
         ./starship.nix
         ./status-bar

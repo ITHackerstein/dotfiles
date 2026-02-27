@@ -10,7 +10,7 @@ in
     config = lib.mkIf cfg.enable {
         programs.kitty = {
             enable = true;
-            shellIntegration.enableFishIntegration = true;
+            shellIntegration.enableBashIntegration = true;
             settings = {
                 disable_ligatures = "never";
                 close_on_child_death = "yes";

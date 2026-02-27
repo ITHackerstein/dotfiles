@@ -11,7 +11,7 @@ in
         programs.eza = {
             enable = true;
             extraOptions = [ "--icons" "--group-directories-first" ];
-            enableFishIntegration = true;
+            enableBashIntegration = true;
         };
     };
 }

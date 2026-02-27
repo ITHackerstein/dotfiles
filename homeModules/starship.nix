@@ -10,7 +10,7 @@ in
     config = lib.mkIf cfg.enable {
         programs.starship = {
             enable = true;
-            enableFishIntegration = true;
+            enableBashIntegration = true;
         };
     };
 }

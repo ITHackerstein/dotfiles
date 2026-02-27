@@ -10,7 +10,6 @@
                 cpp
                 css
                 diff
-                fish
                 gitcommit
                 html
                 java
