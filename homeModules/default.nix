@@ -38,7 +38,6 @@
         ./video-player
         ./window-manager
         ./xdg.nix
-        ./zoxide.nix
     ];
 
     custom.brightnessctl.enable = lib.mkDefault true;
@@ -71,5 +70,4 @@
     custom.video-player.vlc.enable = lib.mkDefault true;
     custom.window-manager.hyprland.enable = lib.mkDefault true;
     custom.xdg.enable = lib.mkDefault true;
-    custom.zoxide.enable = lib.mkDefault true;
 }
