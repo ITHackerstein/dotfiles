@@ -15,10 +15,11 @@
             url = "github:nix-community/nixvim/nixos-25.11";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
     };
 
     outputs =
-    { self, nixpkgs, home-manager, nixvim, stylix, ... }:
+    { self, nixpkgs, home-manager, nixvim, stylix, nix-flatpak, ... }:
     let
         lib = nixpkgs.lib;
         pkgs = import nixpkgs {
@@ -31,6 +32,7 @@
             specialArgs = { inherit host users; };
             modules = [
                 ./hosts/${host}/configuration.nix
+                nix-flatpak.nixosModules.nix-flatpak
             ];
         };
 

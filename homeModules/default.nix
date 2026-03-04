@@ -29,7 +29,6 @@
         ./pwvucontrol.nix
         ./qbittorrent.nix
         ./ripgrep.nix
-        ./rnote.nix
         ./shell.nix
         ./spotify.nix
         ./starship.nix
@@ -63,7 +62,6 @@
     custom.playerctl.enable = lib.mkDefault true;
     custom.pwvucontrol.enable = lib.mkDefault true;
     custom.qbittorrent.enable = lib.mkDefault true;
-    custom.rnote.enable = lib.mkDefault true;
     custom.spotify.enable = lib.mkDefault true;
     custom.starship.enable = lib.mkDefault true;
     custom.status-bar.waybar.enable = lib.mkDefault true;

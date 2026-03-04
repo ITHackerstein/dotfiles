@@ -4,6 +4,7 @@
         ./amdgpu.nix
         ./bluetooth.nix
         ./bootloader
+        ./flatpak.nix
         ./gc.nix
         ./graphics.nix
         ./gnupg.nix
@@ -20,9 +21,11 @@
 
     custom.bluetooth.enable = lib.mkDefault true;
     custom.bootloader.grub.enable = lib.mkDefault true;
+    custom.flatpak.enable = lib.mkDefault true;
     custom.gc.enable = lib.mkDefault true;
     custom.graphics.enable = lib.mkDefault true;
     custom.gnupg.enable = lib.mkDefault true;
+    custom.input.enable = lib.mkDefault true;
     custom.login-manager.ly.enable = lib.mkDefault true;
     custom.pipewire.enable = lib.mkDefault true;
     custom.ssh.enable = lib.mkDefault true;

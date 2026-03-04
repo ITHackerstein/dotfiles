@@ -22,6 +22,9 @@ in
                     "systemctl --user start hyprpolkitagent"
                     "blueman-applet"
                 ];
+                gesture = [
+                    "3, horizontal, workspace"
+                ];
                 input = {
                     kb_layout = "us,us";
                     kb_variant = ",intl";
