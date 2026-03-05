@@ -104,8 +104,8 @@ in
                     ", XF86AudioNext, exec, playerctl next"
                     ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
                     ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-                    ", switch:on:Lid Switch, exec, hyprlock && systemctl suspend"
-                    ", switch:off:Lid Switch, exec, hyprctl dispatch dpms on"
+                    ", switch:on:Lid Switch, exec, systemctl suspend"
+                    ", switch:off:Lid Switch, exec, hyprctl dispatch dpms on && hyprlock"
                 ];
                 bindle = [
                     ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%+"
