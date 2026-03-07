@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
     cfg = config.custom.window-manager.hyprland;
 in
@@ -66,6 +66,7 @@ in
                     "$mod, V, togglefloating"
                     "$mod, P, pseudo"
                     "$mod, J, togglesplit"
+                    "$mod, C, exec, rofi -show calc -calc-command '${pkgs.coreutils}/bin/echo -n '{result}' | ${pkgs.wl-clipboard}/bin/wl-copy' -no-sidebar-mode -no-show-match -no-history -no-sort -hint-welcome '' -theme-str 'listview { lines: 0; }'"
 
                     "$mod, left, movefocus, l"
                     "$mod, right, movefocus, r"

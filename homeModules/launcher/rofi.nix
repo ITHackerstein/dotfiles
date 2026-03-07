@@ -21,7 +21,6 @@ in
             modes = [
                 "drun"
                 "recursivebrowser"
-                "calc"
                 "emoji"
             ];
             cycle = true;
@@ -33,12 +32,6 @@ in
                 display-recursivebrowser = "󰉋  Files";
                 display-calc = "󰃬 Calculator";
                 display-emoji = "󰞅  Emoji";
-                "// porkaround" = mkLiteral ''
-
-                calc {
-                    calc-command: "${pkgs.coreutils}/bin/echo -n '{result}' | ${pkgs.wl-clipboard}/bin/wl-copy";
-                    no-history: true;
-                } // '';
             };
             theme = {
                 "*" = {
