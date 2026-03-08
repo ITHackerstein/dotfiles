@@ -23,6 +23,7 @@
         ./kdeconnect.nix
         ./launcher
         ./networkmanagerapplet.nix
+        ./nix-search.nix
         ./notification-daemon
         ./password-store.nix
         ./playerctl.nix
@@ -57,6 +58,7 @@
     custom.kdeconnect.enable = lib.mkDefault true;
     custom.launcher.rofi.enable = lib.mkDefault true;
     custom.networkmanagerapplet.enable = lib.mkDefault true;
+    custom.nix-search.enable = lib.mkDefault true;
     custom.notification-daemon.dunst.enable = true;
     custom.password-store.enable = lib.mkDefault true;
     custom.playerctl.enable = lib.mkDefault true;
