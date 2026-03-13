@@ -15,6 +15,7 @@
         ./networkmanager.nix
         ./pipewire.nix
         ./ssh.nix
+        ./steam.nix
         ./users.nix
         ./window-manager
     ];
@@ -29,5 +30,6 @@
     custom.login-manager.ly.enable = lib.mkDefault true;
     custom.pipewire.enable = lib.mkDefault true;
     custom.ssh.enable = lib.mkDefault true;
+    custom.steam.enable = lib.mkDefault true;
     custom.window-manager.hyprland.enable = lib.mkDefault true;
 }
