@@ -56,6 +56,7 @@ in
                 nixvim.enable = false;
                 waybar.addCss = false;
                 rofi.enable = false;
+                dunst.enable = true;
             };
         };
 
