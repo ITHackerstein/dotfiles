@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
     cfg = config.custom.notification-daemon.dunst;
 in
@@ -8,7 +8,7 @@ in
     };
 
     config = lib.mkIf cfg.enable {
-        # FIXME: Configure and customize
+        home.packages = [ pkgs.libnotify ];
         services.dunst.enable = true;
     };
 }
