@@ -35,6 +35,7 @@
         ./starship.nix
         ./status-bar
         ./stylix.nix
+        ./telegram.nix
         ./terminal
         ./video-player
         ./window-manager
@@ -68,6 +69,7 @@
     custom.starship.enable = lib.mkDefault true;
     custom.status-bar.waybar.enable = lib.mkDefault true;
     custom.stylix.enable = lib.mkDefault true;
+    custom.telegram.enable = lib.mkDefault true;
     custom.terminal.kitty.enable = lib.mkDefault true;
     custom.video-player.vlc.enable = lib.mkDefault true;
     custom.window-manager.hyprland.enable = lib.mkDefault true;
