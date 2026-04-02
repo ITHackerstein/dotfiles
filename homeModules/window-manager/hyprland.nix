@@ -62,11 +62,11 @@ in
                     "$mod SHIFT, Q, exit"
                     "$mod, Q, killactive"
                     "$mod, Return, exec, kitty"
-                    "$mod, Space, exec, rofi -emoji-mode copy -show"
+                    "$mod, Space, exec, pkill rofi || rofi -emoji-mode copy -show"
                     "$mod, V, togglefloating"
                     "$mod, P, pseudo"
                     "$mod, J, togglesplit"
-                    "$mod, C, exec, rofi -show calc -calc-command '${pkgs.coreutils}/bin/echo -n '{result}' | ${pkgs.wl-clipboard}/bin/wl-copy' -no-sidebar-mode -no-show-match -no-history -no-sort -hint-welcome '' -theme-str 'listview { lines: 0; }'"
+                    "$mod, C, exec, pkill rofi || rofi -show calc -calc-command '${pkgs.coreutils}/bin/echo -n '{result}' | ${pkgs.wl-clipboard}/bin/wl-copy' -no-sidebar-mode -no-show-match -no-history -no-sort -hint-welcome '' -theme-str 'listview { lines: 0; }'"
 
                     "$mod, left, movefocus, l"
                     "$mod, right, movefocus, r"
