@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, rofi-nix-run-pkg, ... }:
 let
     cfg = config.custom.launcher.rofi;
     # FIXME: Untie this from stylix if not enabled
@@ -17,11 +17,13 @@ in
             plugins = [
                 pkgs.rofi-emoji
                 pkgs.rofi-calc
+                rofi-nix-run-pkg
             ];
             modes = [
                 "drun"
                 "recursivebrowser"
                 "emoji"
+                "nix-run"
             ];
             cycle = true;
             extraConfig = {
@@ -32,6 +34,7 @@ in
                 display-recursivebrowser = "󰉋  Files";
                 display-calc = "󰃬 Calculator";
                 display-emoji = "󰞅  Emoji";
+                display-nix-run = "  Nix";
             };
             theme = {
                 "*" = {

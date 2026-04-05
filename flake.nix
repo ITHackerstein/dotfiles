@@ -15,17 +15,23 @@
             url = "github:nix-community/nixvim/nixos-25.11";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        rofi-nix-run = {
+            url = "github:ITHackerstein/rofi-nix-run/nixos-25.11";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
         nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
     };
 
     outputs =
-    { self, nixpkgs, home-manager, nixvim, stylix, nix-flatpak, ... }:
+    { self, nixpkgs, home-manager, nixvim, stylix, nix-flatpak, rofi-nix-run, ... }:
     let
         lib = nixpkgs.lib;
         pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
         };
+
+        rofi-nix-run-pkg = rofi-nix-run.packages.${system}.default;
 
         makeSystem = host: users: nixpkgs.lib.nixosSystem {
             inherit system;
@@ -38,7 +44,7 @@
 
         makeHome = { user, host }: home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            extraSpecialArgs = { inherit user host; };
+            extraSpecialArgs = { inherit user host rofi-nix-run-pkg; };
             modules = [
                 ./homes/${host}/${user}/home.nix
                 nixvim.homeModules.nixvim
