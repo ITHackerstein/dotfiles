@@ -17,6 +17,7 @@
         ./ssh.nix
         ./steam.nix
         ./users.nix
+        ./vm.nix
         ./window-manager
     ];
 
@@ -31,5 +32,6 @@
     custom.pipewire.enable = lib.mkDefault true;
     custom.ssh.enable = lib.mkDefault true;
     custom.steam.enable = lib.mkDefault true;
+    custom.vm.enable = lib.mkDefault true;
     custom.window-manager.hyprland.enable = lib.mkDefault true;
 }
