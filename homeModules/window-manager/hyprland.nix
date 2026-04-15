@@ -13,7 +13,9 @@ in
             xwayland.enable = true;
             settings = {
                 "$mod" = "SUPER";
-                monitor = ",1920x1080@75,0x0,1";
+                monitor = [
+                    "eDP-1,1920x1080@75,0x0,1"
+                ];
                 exec-once = [
                     "hypridle"
                     "hyprpaper"
