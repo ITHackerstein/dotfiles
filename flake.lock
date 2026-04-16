@@ -361,11 +361,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1776324352,
-        "narHash": "sha256-ktw5Roxg/rXGyub6/eMf1jMzBsFR6xvl1Dq/ilS0tmE=",
+        "lastModified": 1776333790,
+        "narHash": "sha256-PGvIwti38B6MvLHIqCab8eLar4p9ikN6fuGcKFLotaw=",
         "owner": "ITHackerstein",
         "repo": "rofi-nix-run",
-        "rev": "ee4f250c09e19ee492ecf3b4c1e7315f160d9cf8",
+        "rev": "ec30a571cdc9d7bc2370152ac390e78bc8cf7039",
         "type": "github"
       },
       "original": {
