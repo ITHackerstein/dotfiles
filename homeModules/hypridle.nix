@@ -18,7 +18,7 @@ in
                 listener = [
                     {
                         timeout = 60 * 3;
-                        on-timeout = "brightnessctl -s set 25";
+                        on-timeout = "brightnessctl -s set 15%";
                         on-resume = "brightnessctl -r";
                     }
 
