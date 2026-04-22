@@ -1,6 +1,62 @@
 { config, lib, pkgs, ... }:
 let
     cfg = config.custom.window-manager.hyprland;
+
+    battery-monitor-script = pkgs.writeShellScriptBin "battery-monitor" ''
+        #!/usr/bin/env bash
+
+        BATTERY=""
+        for supply in /sys/class/power_supply/*; do
+            if [ -f "$supply/type" ] && grep -q "Battery" "$supply/type"; then
+                BATTERY=$(basename "$supply")
+                break
+            fi
+        done
+
+        if [ -z "$BATTERY" ]; then
+            exit 1
+        fi
+
+        PREVIOUS_STATUS=$(cat /sys/class/power_supply/$BATTERY/status)
+        SAVED_BRIGHTNESS=""
+        WARNING_ID=""
+
+        while true; do
+            STATUS=$(cat /sys/class/power_supply/$BATTERY/status)
+            CAPACITY=$(cat /sys/class/power_supply/$BATTERY/capacity)
+
+            if [ "$STATUS" != "$PREVIOUS_STATUS" ]; then
+                if [ "$STATUS" = "Charging" ]; then
+                    SAVED_BRIGHTNESS=$(${pkgs.brightnessctl}/bin/brightnessctl get)
+                    ${pkgs.brightnessctl}/bin/brightnessctl set 100%
+
+                    if [ -n "$WARNING_ID" ]; then
+                        ${pkgs.dbus}/bin/dbus-send \
+                            --session \
+                            --dest=org.freedesktop.Notifications \
+                            --type=method_call /org/freedesktop/Notifications \
+                            org.freedesktop.Notifications.CloseNotification uint32:"$WARNING_ID" 2>/dev/null
+
+                        WARNING_ID=""
+                    fi
+                elif [ "$STATUS" = "Discharging" ]; then
+                    if [ -n "$SAVED_BRIGHTNESS" ]; then
+                        ${pkgs.brightnessctl}/bin/brightnessctl set "$SAVED_BRIGHTNESS"
+                    else
+                        ${pkgs.brightnessctl}/bin/brightnessctl set 30%
+                    fi
+                fi
+
+                PREVIOUS_STATUS="$STATUS"
+            fi
+
+            if [ "$CAPACITY" -le 15 ] && [ "$STATUS" = "Discharging" ] && [ -z "$WARNING_ID" ]; then
+                WARNING_ID=$(${pkgs.libnotify}/bin/notify-send -p -u critical "Battery Critical" "Level is at $CAPACITY%")
+            fi
+
+            sleep 2
+        done
+    '';
 in
 {
     options.custom.window-manager.hyprland = {
@@ -8,6 +64,10 @@ in
     };
 
     config = lib.mkIf cfg.enable {
+        home.packages = [
+            battery-monitor-script
+        ];
+
         wayland.windowManager.hyprland = {
             enable = true;
             xwayland.enable = true;
@@ -23,6 +83,7 @@ in
                     "nm-applet"
                     "systemctl --user start hyprpolkitagent"
                     "blueman-applet"
+                    "${battery-monitor-script}/bin/battery-monitor"
                 ];
                 gesture = [
                     "3, horizontal, workspace"
