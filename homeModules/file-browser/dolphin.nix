@@ -8,6 +8,9 @@ in
     };
 
     config = lib.mkIf cfg.enable {
-        home.packages = [ pkgs.kdePackages.dolphin ];
+        home.packages = [
+            pkgs.kdePackages.dolphin
+            pkgs.kdePackages.kio-extras
+        ];
     };
 }

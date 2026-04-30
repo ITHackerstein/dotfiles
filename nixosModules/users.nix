@@ -7,7 +7,7 @@
             acc // {
                 ${user} = {
                     isNormalUser = true;
-                    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+                    extraGroups = [ "wheel" "networkmanager" "libvirtd" "adbusers" ];
                     useDefaultShell = true;
                 };
             }
