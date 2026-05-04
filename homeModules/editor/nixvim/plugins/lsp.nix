@@ -6,6 +6,7 @@
                 clangd.enable = true;
                 tinymist.enable = true;
                 nixd.enable = true;
+                pyright.enable = true;
             };
             onAttach = ''
                 local telescope_builtin = require("telescope.builtin")
