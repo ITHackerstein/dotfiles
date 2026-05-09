@@ -11,6 +11,12 @@ in
         services.openssh = {
             enable = true;
             startWhenNeeded = true;
+            ports = [ 23790 ];
+            settings = {
+                PasswordAuthentication = false;
+                KbdInteractiveAuthentication = false;
+                PermitRootLogin = "no";
+            };
         };
     };
 }
