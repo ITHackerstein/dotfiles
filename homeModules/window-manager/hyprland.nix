@@ -100,10 +100,11 @@ in
                 general = {
                     gaps_in = 4;
                     gaps_out = 8;
-                    border_size = 1;
+                    border_size = 3;
                 };
                 decoration = {
-                    rounding = 4;
+                    rounding = 6;
+                    inactive_opacity = 0.9;
 
                     blur = {
                         enabled = "yes";
