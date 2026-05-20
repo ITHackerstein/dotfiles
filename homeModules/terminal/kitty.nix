@@ -14,6 +14,7 @@ in
             settings = {
                 disable_ligatures = "never";
                 close_on_child_death = "yes";
+                background_opacity = lib.mkForce "0.9";
             };
         };
     };

@@ -12,7 +12,6 @@
 
     custom.amdgpu.enable = true;
     custom.steam.enable = false;
-    networking.interfaces.enp6s0.wakeOnLan.enable = true;
 
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

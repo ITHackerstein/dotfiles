@@ -98,13 +98,13 @@ in
                     };
                 };
                 general = {
-                    gaps_in = 4;
-                    gaps_out = 8;
-                    border_size = 3;
+                    gaps_in = 2;
+                    gaps_out = 4;
+                    border_size = 2;
                 };
                 decoration = {
-                    rounding = 6;
-                    inactive_opacity = 0.9;
+                    rounding = 0;
+                    inactive_opacity = 1.0;
 
                     blur = {
                         enabled = "yes";
