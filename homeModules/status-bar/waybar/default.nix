@@ -15,9 +15,9 @@ in
                 mainBar = {
                     layer = "top";
                     position = "top";
-                    margin-top = 8;
-                    margin-left = 8;
-                    margin-right = 8;
+                    margin-top = 4;
+                    margin-left = 4;
+                    margin-right = 4;
                     margin-bottom = 0;
                     spacing = 4;
                     modules-left = [
