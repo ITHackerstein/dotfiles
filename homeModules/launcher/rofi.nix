@@ -57,7 +57,7 @@ in
                     y-offset = mkLiteral "32px";
                     border = 1;
                     border-color = mkLiteral "@bg2";
-                    border-radius = mkLiteral "0.25em";
+                    border-radius = mkLiteral "0.0em";
                     background-color = mkLiteral "@bg1";
                 };
                 inputbar = {
