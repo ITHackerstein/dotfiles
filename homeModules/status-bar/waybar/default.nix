@@ -25,8 +25,7 @@ in
                         "hyprland/workspaces"
                     ];
                     modules-center = [
-                        "hyprland/window"
-                        "mpris"
+                        "clock"
                     ];
                     modules-right = [
                         "group/audio"
@@ -35,7 +34,6 @@ in
                         "idle_inhibitor"
                         "tray"
                         "hyprland/language"
-                        "clock"
                     ];
                     "group/power#power" = {
                         orientation = "horizontal";
@@ -60,31 +58,6 @@ in
                         persistent-workspaces = {
                             "*" = 9;
                         };
-                    };
-                    "hyprland/window" = {
-                        icon = true;
-                        icon-size = 18;
-                        tooltip = false;
-                        max-length = 32;
-                        rewrite = {
-                            "(.*) — Mozilla Firefox" = "Firefox - $1";
-                        };
-                    };
-                    mpris = {
-                        format = "{player_icon} {dynamic}";
-                        format-paused = "{status_icon} <i>{dynamic}</i>";
-                        dynamic-order = [ "title" "artist" ];
-                        player-icons = {
-                            spotify = "󰓇";
-                            vlc = "󰎁";
-                            mpv = "󰎁";
-                            default = "󰝚";
-                        };
-                        status-icons = {
-                            paused = "󰏤";
-                        };
-                        ignored-players = [ "firefox" ];
-                        max-length = 32;
                     };
                     "group/audio" = {
                         orientation = "horizontal";
@@ -149,8 +122,8 @@ in
                     clock = {
                         interval = 1;
                         tooltip = false;
-                        format = "󰥔 {:%T}";
-                        format-alt = "󰃭 {:%F}";
+                        # format = "󰥔 {:%T} 󰃭 {:%F}";
+                        format = "󰥔 {:%T 󰃭 %F}";
                     };
                 };
             };
