@@ -1,9 +1,14 @@
-{ config, lib, ... }:
+{ lib, pkgs, ... }:
 {
     programs.bash = {
         enable = true;
         enableCompletion = true;
-        initExtra = lib.mkIf config.custom.microfetch.enable "microfetch";
+        initExtra = ''
+            microfetch
+            if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
+                exec ${lib.getExe pkgs.tmux} new-session -A -s ssh_tmux
+            fi
+        '';
         shellAliases = {
             "dotfiles-edit" = "pushd ~/.dotfiles && nvim && popd";
             "dotfiles-sync" = "pushd ~/.dotfiles && git pull --rebase && git push && popd";

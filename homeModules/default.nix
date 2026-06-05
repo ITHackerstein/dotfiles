@@ -37,6 +37,7 @@
         ./stylix.nix
         ./telegram.nix
         ./terminal
+        ./tmux.nix
         ./video-player
         ./window-manager
         ./xdg.nix
@@ -71,6 +72,7 @@
     custom.stylix.enable = lib.mkDefault true;
     custom.telegram.enable = lib.mkDefault true;
     custom.terminal.kitty.enable = lib.mkDefault true;
+    custom.tmux.enable = lib.mkDefault true;
     custom.video-player.vlc.enable = lib.mkDefault true;
     custom.window-manager.hyprland.enable = lib.mkDefault true;
     custom.xdg.enable = lib.mkDefault true;
