@@ -15,6 +15,8 @@
                 java
                 javadoc
                 javascript
+                jinja
+                jinja-inline
                 json
                 lua
                 luadoc
