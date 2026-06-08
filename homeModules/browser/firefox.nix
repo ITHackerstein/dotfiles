@@ -11,6 +11,7 @@ in
         programs.firefox = {
             enable = true;
             languagePacks = [ "en-US" "it" ];
+            configPath = "${config.xdg.configHome}/mozilla/firefox";
         };
     };
 }

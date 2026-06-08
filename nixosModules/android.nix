@@ -8,9 +8,9 @@ in
     };
 
     config = lib.mkIf cfg.enable {
-        programs.adb.enable = true;
         services.udev.packages = [
             pkgs.libmtp
+            pkgs.android-tools
         ];
     };
 }
